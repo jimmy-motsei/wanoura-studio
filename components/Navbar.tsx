@@ -1,70 +1,48 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <header className="w-full bg-neutral-900 text-neutral-100 border-b border-neutral-800">
-            <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-12 lg:px-24">
-                {/* Left: Brand */}
-                <motion.a
-                    href="#top"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="flex items-center space-x-2"
-                >
-                    {/* Circle mark / placeholder for the Wanoura mark */}
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-600 text-[11px] font-medium">
-                        W
-                    </div>
-
-                    <div className="flex flex-col leading-none">
-            <span className="text-sm font-semibold tracking-tight text-white">
-              Wanoura
-            </span>
-                        <span className="text-[11px] text-neutral-400">
-              The Legacy of Sound
-            </span>
-                    </div>
-                </motion.a>
+        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-neutral-200">
+            <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 text-sm text-neutral-900">
+                {/* Left: Logo / brand */}
+                <Link href="/" className="flex items-center font-serif text-lg tracking-tight">
+                    {/* If you want to use the image instead of text, uncomment:
+          <Image
+            src="/brand/wanoura-logo.png"
+            alt="Wanoura"
+            width={120}
+            height={24}
+            priority
+          />
+          */}
+                    WANOURA
+                </Link>
 
                 {/* Right: Nav links */}
-                <nav className="hidden md:flex items-center space-x-6 text-[13px] text-neutral-300">
-                    <a
-                        href="#about"
-                        className="hover:text-white transition-colors"
-                    >
-                        About
-                    </a>
-                    <a
-                        href="#services"
-                        className="hover:text-white transition-colors"
-                    >
-                        Services
-                    </a>
-                    <a
-                        href="#work"
-                        className="hover:text-white transition-colors"
-                    >
+                <nav className="flex items-center gap-6">
+                    <a href="#work" className="hover:text-black text-neutral-700 transition-colors">
                         Work
                     </a>
-                    <a
-                        href="#contact"
-                        className="hover:text-white transition-colors"
-                    >
+                    <a href="#services" className="hover:text-black text-neutral-700 transition-colors">
+                        Services
+                    </a>
+                    <a href="#clients" className="hover:text-black text-neutral-700 transition-colors">
+                        Clients
+                    </a>
+                    <a href="#contact" className="hover:text-black text-neutral-700 transition-colors">
                         Contact
                     </a>
-                </nav>
 
-                {/* Mobile CTA or Contact button */}
-                <a
-                    href="mailto:hello@wanoura.studio"
-                    className="ml-4 inline-flex items-center rounded-full border border-neutral-600 bg-transparent px-3 py-1.5 text-[12px] font-medium text-white hover:bg-white hover:text-neutral-900 transition-colors md:hidden"
-                >
-                    Reach Out
-                </a>
+                    <a
+                        href="#contact"
+                        className="rounded-full bg-neutral-900 px-3 py-2 text-xs font-medium text-white shadow-sm hover:bg-neutral-800 transition-colors"
+                    >
+                        Get in touch
+                    </a>
+                </nav>
             </div>
         </header>
     );

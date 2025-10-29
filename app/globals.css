@@ -1,13 +1,19 @@
 @import "tailwindcss";
 
-/* Small base tweaks for our dark site */
-@layer base {
-    :root {
-        color-scheme: dark;
-    }
-
-    body {
-        font-family: var(--font-geist-sans, system-ui, sans-serif);
-        -webkit-font-smoothing: antialiased;
-    }
+/* Global dark-mode hint OFF by default – we’re doing light */
+:root {
+    color-scheme: light;
 }
+
+/* Typography smoothing */
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings:
+            "liga" 1,
+            "calt" 1;
+    font-kerning: normal;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* You can add shared utility classes here if needed later */

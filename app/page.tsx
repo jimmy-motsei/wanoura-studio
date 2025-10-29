@@ -1,27 +1,37 @@
 "use client";
 
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Clients from "@/components/Clients";
-import Work from "@/components/Work";
-import Testimonial from "@/components/Testimonial";
-import Capabilities from "@/components/Capabilities";
-import ContactCTA from "@/components/ContactCTA";
-import Footer from "@/components/Footer";
+import HeroLight from "@/components/HeroLight";
+import ClientsStripLight from "@/components/ClientsStripLight";
+import SelectedWorkLight from "@/components/SelectedWorkLight";
+import TestimonialLight from "@/components/TestimonialLight";
+import ServicesLayoutLight from "@/components/ServicesLayoutLight";
+import ContactCTALight from "@/components/ContactCTALight";
+import FooterLight from "@/components/FooterLight";
 
 export default function Home() {
     return (
-        <main className="flex flex-col items-center justify-center">
-            <Hero />
-            <About />
-            <Services />
-            <Clients />
-            <Work />
-            <Testimonial />
-            <Capabilities />
-            <ContactCTA />
-            <Footer />
+        <main className="bg-white text-neutral-900 antialiased">
+            <HeroLight />
+
+            <section id="clients">
+                <ClientsStripLight />
+            </section>
+
+            <section id="work">
+                <SelectedWorkLight />
+            </section>
+
+            <TestimonialLight />
+
+            <section id="services">
+                <ServicesLayoutLight />
+            </section>
+
+            <section id="contact">
+                <ContactCTALight />
+            </section>
+
+            <FooterLight />
         </main>
     );
 }
