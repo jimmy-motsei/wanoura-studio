@@ -1,0 +1,30 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1280" height="720" rx="36" fill="#F7F6F4"/>
+    <rect x="0.5" y="0.5" width="1279" height="719" rx="36" fill="none" stroke="#E8E5E1"/>
+
+    <text x="64" y="92" fill="#6B7280" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          font-size="16" letter-spacing="0.24em">ORIGINAL COMPOSITION</text>
+    <text x="1180" y="92" text-anchor="end" fill="#9CA3AF"
+          font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="16">2024</text>
+
+    <text x="64" y="184" fill="#111827"
+          font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          font-weight="700" font-size="56">Studio Bananaaa</text>
+    <text x="64" y="242" fill="#1F2937"
+          font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+          font-weight="600" font-size="36">Mama’s Boy</text>
+
+    <text x="64" y="296" fill="#4B5563"
+          font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="18">
+        Groove, personality, bass-forward. Built to sit under edits.
+    </text>
+
+    <circle cx="1040" cy="200" r="86" fill="white" stroke="#E5E7EB"/>
+    <circle cx="1040" cy="200" r="54" fill="#111827"/>
+    <polygon points="1026,178 1072,200 1026,222" fill="#F7F6F4"/>
+
+    <text x="64" y="648" fill="#6B7280"
+          font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="16">
+        Wanoura — The Legacy of Sound
+    </text>
+</svg>

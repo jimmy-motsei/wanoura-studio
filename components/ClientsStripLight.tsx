@@ -1,49 +1,54 @@
 "use client";
 
+import Image from "next/image";
+
+const CLIENTS = [
+    {
+        name: "Jägermeister",
+        src: "/logos/jagermeister-neutral.png",
+    },
+    {
+        name: "Kreative Korner",
+        src: "/logos/kreative-korner-neutral.png",
+    },
+    {
+        name: "Nike",
+        src: "/logos/nike-neutral.png",
+    },
+    {
+        name: "Zee Entertainment",
+        src: "/logos/zee-entertainment-neutral.png",
+    },
+    {
+        name: "Studio Bananaaa",
+        src: "/logos/studio-bananaaa-neutral.png",
+    },
+];
+
 export default function ClientsStripLight() {
     return (
-        <section className="relative z-10 -mt-8 pb-16">
-            {/* Card */}
-            <div className="mx-auto w-full max-w-5xl rounded-xl border border-neutral-800 bg-neutral-900 px-6 py-8 text-white shadow-[0_40px_120px_rgba(0,0,0,0.8)]">
-                {/* Eyebrow */}
-                <div className="text-[10px] font-medium uppercase tracking-widest text-neutral-400">
-                    We’ve collaborated with some truly inspiring people and brands
-                </div>
-
-                {/* Logo grid / name grid */}
-                <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-6 text-[11px] leading-tight text-white/90 sm:grid-cols-3 md:grid-cols-6 md:text-[11px]">
-                    {/* Each item would be an icon+label in the final version.
-             For now we're using text placeholders. */}
-
-                    <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded-[4px] bg-white/80" />
-                        <span>Audiowave</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded-[4px] bg-white/80" />
-                        <span>Family Fund</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded-[4px] bg-white/80" />
-                        <span>BrightPath</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded-[4px] bg-white/80" />
-                        <span>North Adventures</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded-[4px] bg-white/80" />
-                        <span>Mailmark</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        <div className="h-3 w-3 rounded-[4px] bg-white/80" />
-                        <span>Green Life</span>
-                    </div>
+        <section
+            id="clients"
+            className="bg-white border-y border-neutral-200 py-10 md:py-12"
+        >
+            <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 lg:px-8">
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-400">
+                    Trusted by brands, creators, and studios
+                </p>
+                <div className="grid grid-cols-2 gap-6 md:grid-cols-5 md:items-center">
+                    {CLIENTS.map((client) => (
+                        <div key={client.name} className="flex items-center gap-3">
+                            <div className="relative h-7 w-28">
+                                <Image
+                                    src={client.src}
+                                    alt={client.name}
+                                    fill
+                                    className="object-contain"
+                                    sizes="120px"
+                                />
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
