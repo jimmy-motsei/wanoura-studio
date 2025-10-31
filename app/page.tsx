@@ -2,36 +2,49 @@
 
 import HeroLight from "@/components/HeroLight";
 import ClientsStripLight from "@/components/ClientsStripLight";
-import SelectedWorkLight from "@/components/SelectedWorkLight";
-import TestimonialLight from "@/components/TestimonialLight";
+import OriginalCompositionsLight from "@/components/OriginalCompositionsLight";
 import ServicesLayoutLight from "@/components/ServicesLayoutLight";
+import TestimonialLight from "@/components/TestimonialLight";
 import ContactCTALight from "@/components/ContactCTALight";
 import FooterLight from "@/components/FooterLight";
 
 export default function Home() {
     return (
-        <main className="bg-white text-neutral-900 antialiased">
-            <HeroLight />
+        <main className="bg-white text-neutral-900">
+            {/* HERO */}
+            <section id="top">
+                <HeroLight />
+            </section>
 
-            <section id="clients">
+            {/* CLIENTS STRIP */}
+            <section id="clients" className="mt-0">
                 <ClientsStripLight />
             </section>
 
-            <section id="work">
-                <SelectedWorkLight />
+            {/* ORIGINAL COMPOSITIONS / CUSTOM SCORES */}
+            <section id="work" className="mt-12 sm:mt-16 lg:mt-20">
+                <OriginalCompositionsLight />
             </section>
 
-            <TestimonialLight />
-
-            <section id="services">
+            {/* SERVICES (the Denmark-studio style block) */}
+            <section id="services" className="mt-12 sm:mt-16 lg:mt-20">
                 <ServicesLayoutLight />
             </section>
 
-            <section id="contact">
+            {/* TESTIMONIAL */}
+            <section id="testimonial" className="mt-12 sm:mt-16 lg:mt-20">
+                <TestimonialLight />
+            </section>
+
+            {/* CONTACT CTA */}
+            <section id="contact" className="mt-12 sm:mt-16 lg:mt-20">
                 <ContactCTALight />
             </section>
 
-            <FooterLight />
+            {/* FOOTER */}
+            <footer className="mt-12 sm:mt-16 lg:mt-20">
+                <FooterLight />
+            </footer>
         </main>
     );
 }
