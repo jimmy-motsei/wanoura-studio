@@ -1,5 +1,3 @@
-"use client";
-
 export default function SelectedWorkLight() {
     return (
         <section className="bg-white text-neutral-900 px-4 py-16 sm:py-24">
@@ -36,10 +34,8 @@ export default function SelectedWorkLight() {
                         </h3>
 
                         <p className="mt-2 text-[0.8rem] leading-relaxed text-neutral-600">
-                            We built an aggressive, high-memory hook for{" "}
-                            <span className="font-semibold text-neutral-800">
-                Jagemeister
-              </span>{" "}
+                            We built an aggressive, high-memory hook for 
+                            <span className="font-semibold text-neutral-800">Jagemeister </span>
                             that had to hit fast on social. Instant grit. No warm-up. The
                             brief: sound that tastes like fire, but still clears legal.
                         </p>
@@ -62,8 +58,7 @@ export default function SelectedWorkLight() {
                         </h3>
 
                         <p className="mt-2 text-[0.8rem] leading-relaxed text-neutral-600">
-                            For{" "}
-                            <span className="font-semibold text-neutral-800">Nike</span>, we
+                            For <span className="font-semibold text-neutral-800">Nike</span>, we
                             built a vocal identity that feels human, urgent, and
                             undeniable — not announcer-y. Casting, direction, timing,
                             breathing, pace. Culture-forward, not corporate.
@@ -89,11 +84,7 @@ export default function SelectedWorkLight() {
                         </h3>
 
                         <p className="mt-2 text-[0.8rem] leading-relaxed text-neutral-600">
-                            With{" "}
-                            <span className="font-semibold text-neutral-800">
-                Uncle Waffles
-              </span>
-                            , we shaped the full audio experience — transitions, drops,
+                            With <span className="font-semibold text-neutral-800">Uncle Waffles</span>, we shaped the full audio experience — transitions, drops,
                             crowd texture, on-stage identity. The brief: feel the room
                             through a phone speaker.
                         </p>

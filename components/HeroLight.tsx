@@ -1,5 +1,3 @@
-"use client";
-
 export default function HeroLight() {
     return (
         <section className="relative bg-white">

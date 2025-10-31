@@ -1,5 +1,3 @@
-"use client";
-
 export default function ClientsStripLight() {
     return (
         <section className="relative z-10 -mt-8 pb-16">

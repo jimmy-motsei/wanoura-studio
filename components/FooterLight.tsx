@@ -1,5 +1,3 @@
-"use client";
-
 export default function ContactCTALight() {
     return (
         <section className="bg-white text-neutral-900 px-4 py-20 sm:py-24">

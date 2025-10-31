@@ -1,132 +1,86 @@
-
-"use client";
-
 export default function ContactCTALight() {
     return (
-        <section className="bg-white text-neutral-900 px-4 py-20 sm:py-24">
-            <div className="mx-auto max-w-5xl">
-                <div className="rounded-2xl bg-neutral-900 text-neutral-100 p-8 sm:p-10 shadow-[0_30px_80px_-10px_rgba(0,0,0,0.6)]">
-                    {/* Top row: intro + CTA + contact details */}
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
-                        {/* LEFT: headline + description + buttons */}
-                        <div className="flex-1 min-w-0">
-                            <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-neutral-400">
-                                Wanoura — The Legacy of Sound.
-                            </p>
-
-                            <p className="mt-3 text-[0.9rem] leading-relaxed text-neutral-300 max-w-xl">
-                                We build sonic worlds where emotion and precision coexist. From
-                                score to mix, from texture to voice, we shape sound that moves
-                                people and endures.
-                            </p>
-
-                            <div className="mt-5 flex flex-col sm:flex-row gap-3 text-[0.8rem] leading-relaxed text-neutral-300">
-                                <button
-                                    className="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 font-medium text-neutral-900 hover:bg-neutral-200 transition"
-                                >
-                                    Listen / Watch Work
-                                </button>
-
-                                <button
-                                    className="inline-flex items-center justify-center rounded-full border border-neutral-600/60 px-4 py-2 font-medium text-neutral-100 hover:bg-neutral-800 transition"
-                                >
-                                    Start a Project
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* RIGHT: contact / socials */}
-                        <div className="w-full max-w-xs shrink-0 space-y-6 text-[0.8rem] leading-relaxed">
-                            {/* Location */}
-                            <div>
-                                <div className="font-semibold text-neutral-100">
-                                    Johannesburg · Remote / Global
-                                </div>
-                                <div className="text-neutral-400">
-                                    Built for brands, campaigns, and culture.
-                                </div>
-                            </div>
-
-                            {/* Capabilities summary */}
-                            <div>
-                                <div className="text-neutral-400">
-                                    Voice, Score, Sonic Identity, Mix &amp; Delivery.
-                                </div>
-                                <div className="text-neutral-400">
-                                    Fast turnaround. Broadcast-ready. Streaming-safe.
-                                </div>
-                            </div>
-
-                            {/* Direct contact */}
-                            <div>
-                                <div className="font-semibold text-neutral-100">
-                                    Let’s talk
-                                </div>
-                                <div className="text-neutral-400">
-                                    {/* TODO: replace with real email */}
-                                    <a
-                                        className="hover:text-neutral-200 underline underline-offset-2"
-                                        href="mailto:hello@wanoura.studio"
-                                    >
-                                        hello@wanoura.studio
-                                    </a>
-                                </div>
-                                <div className="text-neutral-500">
-                                    {/* TODO: optional phone / WhatsApp */}
-                                    +27 (000) 000 0000
-                                </div>
-                            </div>
-
-                            {/* Social links */}
-                            <div>
-                                <div className="font-semibold text-neutral-100">
-                                    Social
-                                </div>
-                                <ul className="mt-1 space-y-1 text-neutral-400">
-                                    <li>
-                                        <a
-                                            className="hover:text-neutral-200 underline underline-offset-2"
-                                            href="https://instagram.com/wanoura"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            Instagram
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            className="hover:text-neutral-200 underline underline-offset-2"
-                                            href="https://soundcloud.com/wanoura"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            Soundcloud
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            className="hover:text-neutral-200 underline underline-offset-2"
-                                            href="https://vimeo.com/wanoura"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            Vimeo / Reel
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Bottom fine-print / positioning */}
-                    <div className="mt-10 border-t border-neutral-700/60 pt-6 text-[0.7rem] leading-relaxed text-neutral-500">
-                        <div>
-                            Commercial, campaign &amp; product.
-                            <br />
-                            Culture, community &amp; emerging talent.
-                        </div>
-                    </div>
+        <section id="contact" className="bg-white py-20">
+            <div className="mx-auto max-w-5xl rounded-[32px] border border-neutral-200 bg-white/70 p-10 lg:p-14 shadow-[0_24px_80px_rgba(15,23,42,0.06)]">
+                <div className="max-w-2xl">
+                    <p className="text-xs font-medium uppercase tracking-[0.4em] text-neutral-400">
+                        Contact us
+                    </p>
+                    <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">
+                        Let’s work together
+                    </h2>
+                    <p className="mt-3 text-sm text-neutral-500 leading-relaxed">
+                        Tell us about your project — we’ll come back with options, timelines, and a sonic POV.
+                    </p>
                 </div>
+
+                <form className="mt-10 grid gap-6 lg:grid-cols-2">
+                    <div className="lg:col-span-2">
+                        <label htmlFor="contact-name" className="block text-sm font-medium text-neutral-700">
+                            Name
+                        </label>
+                        <input
+                            id="contact-name"
+                            name="name"
+                            autoComplete="name"
+                            type="text"
+                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900"
+                            placeholder="Your full name"
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="contact-email" className="block text-sm font-medium text-neutral-700">
+                            Email
+                        </label>
+                        <input
+                            id="contact-email"
+                            name="email"
+                            autoComplete="email"
+                            type="email"
+                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900"
+                            placeholder="you@example.com"
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="contact-company" className="block text-sm font-medium text-neutral-700">
+                            Company / Studio
+                        </label>
+                        <input
+                            id="contact-company"
+                            name="company"
+                            autoComplete="organization"
+                            type="text"
+                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900"
+                            placeholder="Production, brand, agency…"
+                        />
+                    </div>
+                    <div className="lg:col-span-2">
+                        <label htmlFor="contact-message" className="block text-sm font-medium text-neutral-700">
+                            Project details
+                        </label>
+                        <textarea
+                            id="contact-message"
+                            name="message"
+                            autoComplete="off"
+                            rows={4}
+                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900"
+                            placeholder="What are we scoring? Deadlines, references, deliverables…"
+                        />
+                    </div>
+                    <div className="lg:col-span-2 flex flex-wrap items-center gap-4">
+                        <button
+                            type="submit"
+                            className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-700"
+                        >
+                            Send request
+                        </button>
+                        <p className="text-sm text-neutral-400">
+                            Or email us directly at <a href="mailto:hello@dreamwanoura.com" className="text-neutral-900 underline underline-offset-2 hover:text-neutral-500">hello@dreamwanoura.com</a>
+                        </p>
+                    </div>
+                </form>
             </div>
         </section>
     );

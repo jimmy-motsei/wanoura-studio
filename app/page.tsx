@@ -1,50 +1,52 @@
-"use client";
-
 import HeroLight from "@/components/HeroLight";
 import ClientsStripLight from "@/components/ClientsStripLight";
-import OriginalCompositionsLight from "@/components/OriginalCompositionsLight";
+import SelectedWorkLight from "@/components/SelectedWorkLight";
 import ServicesLayoutLight from "@/components/ServicesLayoutLight";
 import TestimonialLight from "@/components/TestimonialLight";
+import OriginalCompositionsLight from "@/components/OriginalCompositionsLight";
 import ContactCTALight from "@/components/ContactCTALight";
 import FooterLight from "@/components/FooterLight";
 
 export default function Home() {
     return (
-        <main className="bg-white text-neutral-900">
-            {/* HERO */}
-            <section id="top">
+        <main className="min-h-screen bg-white text-neutral-900">
+            {/* Hero / intro */}
+            <section id="hero">
                 <HeroLight />
             </section>
 
-            {/* CLIENTS STRIP */}
-            <section id="clients" className="mt-0">
+            {/* Clients strip */}
+            <section id="clients">
                 <ClientsStripLight />
             </section>
 
-            {/* ORIGINAL COMPOSITIONS / CUSTOM SCORES */}
-            <section id="work" className="mt-12 sm:mt-16 lg:mt-20">
-                <OriginalCompositionsLight />
+            {/* Selected work (the old “work” section) */}
+            <section id="work">
+                <SelectedWorkLight />
             </section>
 
-            {/* SERVICES (the Denmark-studio style block) */}
-            <section id="services" className="mt-12 sm:mt-16 lg:mt-20">
+            {/* Services block */}
+            <section id="services">
                 <ServicesLayoutLight />
             </section>
 
-            {/* TESTIMONIAL */}
-            <section id="testimonial" className="mt-12 sm:mt-16 lg:mt-20">
+            {/* Testimonial */}
+            <section id="testimonial">
                 <TestimonialLight />
             </section>
 
-            {/* CONTACT CTA */}
-            <section id="contact" className="mt-12 sm:mt-16 lg:mt-20">
+            {/* Original compositions / custom scores */}
+            <section id="original-compositions">
+                <OriginalCompositionsLight />
+            </section>
+
+            {/* Contact */}
+            <section id="contact">
                 <ContactCTALight />
             </section>
 
-            {/* FOOTER */}
-            <footer className="mt-12 sm:mt-16 lg:mt-20">
-                <FooterLight />
-            </footer>
+            {/* Footer */}
+            <FooterLight />
         </main>
     );
 }
