@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+// app/layout.tsx
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
+import Navbar from "@/components/Navbar"; // ✅ default import
 
 export const metadata: Metadata = {
     title: "Wanoura — The Legacy of Sound",
@@ -13,9 +14,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className="bg-white">
+        <html lang="en">
         <body className="bg-white text-neutral-900 antialiased">
-        <Navbar />
+        <Navbar />     {/* ✅ now it's a real component */}
         {children}
         </body>
         </html>

@@ -1,168 +1,150 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
 
-type ScoreItem = {
-    id: string;
+type OriginalComposition = {
+    slug: string;
     title: string;
     client: string;
     year: string;
-    description: string;
-    videoSrc: string;
-    posterSrc: string;
+    duration: string;
+    poster: string;
+    role?: string;
 };
 
-const SCORES: ScoreItem[] = [
+const ORIGINAL_COMPOSITIONS: OriginalComposition[] = [
     {
-        id: "jagermeister",
-        title: "“My Waffles” — teaser cue",
+        slug: "jagermeister-my-waffles-tease",
+        title: "My Waffles (Tease)",
         client: "Jägermeister",
         year: "2024",
-        description: "Energetic, rhythmic, built for short-form and social rollouts.",
-        videoSrc: "/original-compositions-custom-scores/jagermeister-my-waffles-tease.mp4",
-        posterSrc:
+        duration: "00:42",
+        poster:
             "/original-compositions-custom-scores/posters/jagermeister-my-waffles-tease.svg",
+        role: "Original score, sound design, mix",
     },
     {
-        id: "love-letters",
-        title: "Love Letters to my Mom",
+        slug: "studio-bananaaa-love-letters-to-my-mom",
+        title: "Love Letters to My Mom",
         client: "Studio Bananaaa",
         year: "2024",
-        description: "Soft, human-centred score with warm mids and gentle movement.",
-        videoSrc: "/original-compositions-custom-scores/studio-bananaaa-love-letters-to-my-mom.mp4",
-        posterSrc:
+        duration: "01:13",
+        poster:
             "/original-compositions-custom-scores/posters/studio-bananaaa-love-letters-to-my-mom.svg",
+        role: "Score, VO direction, delivery",
     },
     {
-        id: "mamas-boy",
+        slug: "studio-bananaaa-mamas-boy",
         title: "Mama’s Boy",
         client: "Studio Bananaaa",
         year: "2024",
-        description: "Groove, personality, bass-forward. Built to sit under edits.",
-        videoSrc: "/original-compositions-custom-scores/studio-bananaaa-mamas-boy.mp4",
-        posterSrc:
+        duration: "00:58",
+        poster:
             "/original-compositions-custom-scores/posters/studio-bananaaa-mamas-boy.svg",
+        role: "Original music, SFX, broadcast mix",
     },
     {
-        id: "umfana-ka-ma",
+        slug: "studio-bananaaa-umfana-ka-ma",
         title: "Umfana ka Ma",
         client: "Studio Bananaaa",
         year: "2024",
-        description: "Rhythmic, modern African texture for culture-first stories.",
-        videoSrc: "/original-compositions-custom-scores/studio-bananaaa-umfana-ka-ma.mp4",
-        posterSrc:
+        duration: "01:04",
+        poster:
             "/original-compositions-custom-scores/posters/studio-bananaaa-umfana-ka-ma.svg",
+        role: "Score, cultural tone, mastering",
     },
 ];
 
 export default function OriginalCompositionsLight() {
-    const [activeId, setActiveId] = useState<string>(SCORES[0]?.id ?? "");
-
-    const activeItem = SCORES.find((item) => item.id === activeId) ?? SCORES[0];
-
     return (
         <section
-            id="custom-scores"
-            className="bg-white text-neutral-900 py-20 lg:py-28"
+            id="original-compositions"
+            className="bg-white text-neutral-900 py-20 sm:py-24"
         >
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                {/* Section header */}
-                <header className="mb-10 lg:mb-14 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                {/* Heading */}
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-10">
                     <div>
-                        <p className="text-xs font-medium uppercase tracking-[0.24em] text-neutral-500">
+                        <p className="text-[13px] font-medium tracking-[0.2em] uppercase text-neutral-400">
                             Original Compositions &amp; Custom Scores
                         </p>
-                        <h2 className="mt-3 text-3xl tracking-tight sm:text-4xl lg:text-[2.7rem] font-semibold text-neutral-900">
-                            Music built around story, culture, and intention.
+                        <h2 className="mt-3 text-3xl sm:text-[2.3rem] leading-tight font-semibold text-neutral-900">
+                            Sound made for moving pictures.
                         </h2>
-                        <p className="mt-4 max-w-3xl text-base text-neutral-600 leading-relaxed">
-                            Selected cues for brands and storytellers. Each piece is crafted
-                            to translate emotion into sonic language — ready for picture,
-                            social, and campaign rollouts.
+                        <p className="mt-3 max-w-2xl text-sm sm:text-base text-neutral-500">
+                            From teasers to branded films, these pieces were written,
+                            produced, and delivered in studio — tailored to story, brand, and
+                            pace.
                         </p>
                     </div>
-                    <div className="text-sm text-neutral-500 flex gap-3 items-center">
-                        <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />
-                        4 featured scores
-                    </div>
-                </header>
-
-                {/* Main layout: player + list */}
-                <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] items-start">
-                    {/* Player */}
-                    <div className="rounded-3xl bg-neutral-50 border border-neutral-200 overflow-hidden shadow-sm">
-                        <div className="aspect-video bg-white">
-                            {/* We’re using native <video> here because your assets are local */}
-                            <video
-                                key={activeItem.id}
-                                src={activeItem.videoSrc}
-                                poster={activeItem.posterSrc}
-                                controls
-                                preload="metadata"
-                                className="h-full w-full object-cover"
-                            />
-                        </div>
-                        <div className="px-6 py-6 lg:px-8 lg:py-7 space-y-2">
-                            <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">
-                                {activeItem.client} • {activeItem.year}
-                            </p>
-                            <h3 className="text-xl font-semibold text-neutral-900">
-                                {activeItem.title}
-                            </h3>
-                            <p className="text-sm text-neutral-600 leading-relaxed">
-                                {activeItem.description}
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* List of scores */}
-                    <div className="space-y-4">
-                        {SCORES.map((item) => {
-                            const isActive = item.id === activeId;
-                            return (
-                                <button
-                                    key={item.id}
-                                    onClick={() => setActiveId(item.id)}
-                                    className={`w-full text-left rounded-2xl border transition-all flex gap-4 items-center p-4 lg:p-5 ${
-                                        isActive
-                                            ? "border-neutral-900 bg-neutral-900/5 shadow-sm"
-                                            : "border-neutral-200 hover:border-neutral-400 bg-white"
-                                    }`}
-                                >
-                                    {/* tiny poster preview */}
-                                    <div className="hidden sm:block w-20 h-14 rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200 flex-shrink-0">
-                                        {/* using img is okay for local svg here */}
-                                        <img
-                                            src={item.posterSrc}
-                                            alt={item.title}
-                                            className="w-full h-full object-cover"
-                                            loading="lazy"
-                                        />
-                                    </div>
-                                    <div className="flex-1">
-                                        <p className="text-[0.65rem] uppercase tracking-[0.25em] text-neutral-500">
-                                            {item.client}
-                                        </p>
-                                        <p className="mt-1 text-sm font-medium text-neutral-900">
-                                            {item.title}
-                                        </p>
-                                        <p className="mt-1 text-xs text-neutral-500 line-clamp-2">
-                                            {item.description}
-                                        </p>
-                                    </div>
-                                    <div className="text-xs text-neutral-400">{item.year}</div>
-                                </button>
-                            );
-                        })}
+                    <div className="text-sm text-neutral-400">
+                        {ORIGINAL_COMPOSITIONS.length} selected works • 2024
                     </div>
                 </div>
 
-                {/* footer note */}
-                <p className="mt-10 text-xs text-neutral-400">
-                    All music © {new Date().getFullYear()} Wanoura Sound Studio. Created
-                    for client campaigns, social storytelling, and cultural experiences.
-                </p>
+                {/* Grid */}
+                <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                    {ORIGINAL_COMPOSITIONS.map((item) => (
+                        <article
+                            key={item.slug}
+                            className="group rounded-2xl border border-neutral-100 bg-white/40 shadow-[0_20px_40px_rgba(15,23,42,0.04)] backdrop-blur-sm overflow-hidden flex flex-col"
+                        >
+                            {/* Poster */}
+                            <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden">
+                                <Image
+                                    src={item.poster}
+                                    alt={item.title}
+                                    fill
+                                    className="object-cover transition duration-300 group-hover:scale-[1.02]"
+                                    sizes="(min-width: 1280px) 260px, (min-width: 768px) 50vw, 100vw"
+                                />
+
+                                {/* Play overlay */}
+                                <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                                    <div className="bg-white/90 group-hover:bg-white transition-all duration-200 rounded-full w-14 h-14 flex items-center justify-center shadow-lg">
+                                        <div className="ml-1 h-3.5 w-3.5 bg-neutral-900 clip-path-triangle" />
+                                    </div>
+                                </div>
+
+                                {/* Year badge */}
+                                <div className="absolute top-3 right-3 rounded-full bg-white/80 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-600">
+                                    {item.year}
+                                </div>
+                            </div>
+
+                            {/* Body */}
+                            <div className="flex-1 px-5 py-5 flex flex-col gap-3">
+                                <p className="text-[11px] uppercase tracking-[0.16em] text-neutral-400">
+                                    {item.client}
+                                </p>
+                                <h3 className="text-base font-semibold leading-snug text-neutral-900 group-hover:text-neutral-950">
+                                    {item.title}
+                                </h3>
+                                {item.role ? (
+                                    <p className="text-sm text-neutral-500 leading-relaxed">
+                                        {item.role}
+                                    </p>
+                                ) : null}
+                            </div>
+
+                            {/* Footer */}
+                            <div className="mt-auto flex items-center justify-between border-t border-neutral-100 px-5 py-3 text-[12px] text-neutral-400">
+                                <span>Custom score</span>
+                                <span className="rounded-full bg-neutral-100 px-2 py-1 text-[11px] font-medium text-neutral-600">
+                  {item.duration}
+                </span>
+                            </div>
+                        </article>
+                    ))}
+                </div>
             </div>
+
+            {/* Local style for triangle */}
+            <style jsx>{`
+                .clip-path-triangle {
+                    clip-path: polygon(0 0, 100% 50%, 0 100%);
+                }
+            `}</style>
         </section>
     );
 }

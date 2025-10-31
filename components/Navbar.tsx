@@ -1,33 +1,51 @@
-<nav className="flex items-center gap-6 text-[14px] font-medium text-neutral-800">
-    <a
-        href="#original-compositions"
-        className="hover:text-neutral-950 transition-colors"
-    >
-        Original Compositions
-    </a>
-    <a
-        href="#services"
-        className="hover:text-neutral-950 transition-colors"
-    >
-        Services
-    </a>
-    <a
-        href="#clients"
-        className="hover:text-neutral-950 transition-colors"
-    >
-        Clients
-    </a>
-    <a
-        href="#contact"
-        className="hover:text-neutral-950 transition-colors"
-    >
-        Contact
-    </a>
+"use client";
 
-    <a
-        href="#contact"
-        className="rounded-full border border-neutral-300 bg-neutral-900 px-3 py-1.5 text-[13px] font-medium text-white shadow-sm hover:bg-neutral-800 hover:border-neutral-400 transition-colors"
-    >
-        Get in touch
-    </a>
-</nav>
+import Image from "next/image";
+import Link from "next/link";
+
+const navItems = [
+    { label: "Work", href: "#work" },
+    { label: "Services", href: "#services" },
+    { label: "Clients", href: "#clients" },
+    { label: "Contact", href: "#contact" },
+];
+
+export default function Navbar() {
+    return (
+        <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/80 backdrop-blur">
+            <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+                {/* Logo */}
+                <Link href="/" className="flex items-center gap-2">
+                    <Image
+                        src="/brand/wanoura-logo.png"
+                        alt="Wanoura"
+                        width={140}
+                        height={28}
+                        priority
+                    />
+                </Link>
+
+                {/* Desktop nav */}
+                <nav className="hidden gap-6 text-sm text-neutral-700 md:flex">
+                    {navItems.map((item) => (
+                        <a
+                            key={item.href}
+                            href={item.href}
+                            className="transition hover:text-neutral-950"
+                        >
+                            {item.label}
+                        </a>
+                    ))}
+                </nav>
+
+                {/* CTA */}
+                <a
+                    href="#contact"
+                    className="hidden rounded-full bg-neutral-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-800 md:inline-flex"
+                >
+                    Get in touch
+                </a>
+            </div>
+        </header>
+    );
+}
