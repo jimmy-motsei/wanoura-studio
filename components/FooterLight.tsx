@@ -18,17 +18,19 @@ export default function ContactCTALight() {
                             </p>
 
                             <div className="mt-5 flex flex-col sm:flex-row gap-3 text-[0.8rem] leading-relaxed text-neutral-300">
-                                <button
+                                <a
+                                    href="#work"
                                     className="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 font-medium text-neutral-900 hover:bg-neutral-200 transition"
                                 >
                                     Listen / Watch Work
-                                </button>
+                                </a>
 
-                                <button
+                                <a
+                                    href="#contact"
                                     className="inline-flex items-center justify-center rounded-full border border-neutral-600/60 px-4 py-2 font-medium text-neutral-100 hover:bg-neutral-800 transition"
                                 >
                                     Start a Project
-                                </button>
+                                </a>
                             </div>
                         </div>
 
@@ -60,17 +62,12 @@ export default function ContactCTALight() {
                                     Let’s talk
                                 </div>
                                 <div className="text-neutral-400">
-                                    {/* TODO: replace with real email */}
                                     <a
                                         className="hover:text-neutral-200 underline underline-offset-2"
-                                        href="mailto:hello@wanoura.studio"
+                                        href="mailto:hello@dreamwarouna.com"
                                     >
-                                        hello@wanoura.studio
+                                        hello@dreamwarouna.com
                                     </a>
-                                </div>
-                                <div className="text-neutral-500">
-                                    {/* TODO: optional phone / WhatsApp */}
-                                    +27 (000) 000 0000
                                 </div>
                             </div>
 

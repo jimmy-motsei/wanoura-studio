@@ -13,7 +13,7 @@ export default function ServicesLayoutLight() {
                     </p>
 
                     <h2 className="mt-3 text-[1.5rem] leading-[1.2] tracking-[-0.03em] font-medium text-neutral-900">
-                        We help you identify, explore and<br />
+                        We help you identify, explore and<br/>
                         respond to new opportunities.
                     </h2>
 

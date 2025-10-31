@@ -65,7 +65,7 @@ export default function OriginalCompositionsLight() {
                     {scores.map((score) => (
                         <article
                             key={score.slug}
-                            className="rounded-3xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition overflow-hidden flex flex-col"
+                            className="rounded-3xl bg-neutral-950 border border-neutral-900/60 shadow-[0_18px_50px_rgba(15,23,42,0.06)] hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)] transition overflow-hidden flex flex-col"
                         >
                             <div className="relative h-48">
                                 <Image
@@ -84,13 +84,13 @@ export default function OriginalCompositionsLight() {
                                 </div>
                             </div>
                             <div className="p-6 flex flex-col gap-2 flex-1">
-                                <p className="text-[10px] tracking-[0.2em] uppercase text-slate-400">
+                                <p className="text-[10px] tracking-[0.2em] uppercase text-neutral-400">
                                     {score.client}
                                 </p>
-                                <h3 className="text-base font-semibold text-slate-900 leading-tight">{score.title}</h3>
-                                <p className="text-xs text-slate-500">{score.meta}</p>
+                                <h3 className="text-base font-semibold text-neutral-100 leading-tight">{score.title}</h3>
+                                <p className="text-xs text-neutral-500">{score.meta}</p>
                             </div>
-                            <div className="px-6 pb-6 flex items-center justify-between text-xs text-slate-400">
+                            <div className="px-6 pb-6 flex items-center justify-between text-xs text-neutral-400">
                                 <span>Custom score</span>
                                 <span className="inline-flex items-center justify-center rounded-full bg-white border border-slate-100 px-3 py-1 text-slate-500">
                   {score.length}

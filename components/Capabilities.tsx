@@ -68,12 +68,12 @@ export default function Capabilities() {
                         transition={{ duration: 0.6, delay: 0.15 }}
                         className="relative max-w-md rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900/60 shadow-[0_30px_120px_rgba(0,0,0,0.8)]"
                     >
-                        {/* use your actual asset path here */}
+                        {/* updated to portrait visual (same layout/size) */}
                         <Image
-                            src="/images/studio-shot.jpg"
-                            alt="Production desk in session"
+                            src="/images/sound-studio-portrait.jpg"
+                            alt="Studio microphone and workstation"
                             width={800}
-                            height={600}
+                            height={1200}
                             className="object-cover w-full h-auto max-h-72 opacity-90"
                         />
                     </motion.div>
