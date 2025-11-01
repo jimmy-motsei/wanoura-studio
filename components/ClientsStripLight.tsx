@@ -1,37 +1,43 @@
-import Image from "next/image";
-
-const logos = [
-    { name: "Nike", src: "/logos/Nike-neutral.png" },
-    { name: "Jägermeister", src: "/logos/jagermeister-neutral.png" },
-    { name: "Studio Bananaaa", src: "/logos/Studio-Bananaaa-neutral.png" },
-    { name: "Zee Entertainment", src: "/logos/Zee-entertainment-neutral.png" },
-    { name: "Kreative Kornerr", src: "/logos/Kreative-Kornerr-neutral.png" },
-];
-
+// components/ClientsStripLight.tsx
 export default function ClientsStripLight() {
-    return (
-        <section className="relative z-10 -mt-8 pb-16">
-            {/* Card */}
-            <div className="mx-auto w-full max-w-5xl rounded-xl border border-neutral-800 bg-neutral-900 px-6 py-8 text-white shadow-[0_40px_120px_rgba(0,0,0,0.8)]">
-                {/* Eyebrow */}
-                <div className="text-[10px] font-medium uppercase tracking-widest text-neutral-400">
-                    We’ve collaborated with some truly inspiring people and brands
-                </div>
+    const clients = [
+        // nice, wide, already white
+        { name: "Nike", src: "/brand/nike.png", className: "w-20 md:w-24" },
 
-                {/* Logo grid */}
-                <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-8 gap-y-6 justify-items-center items-center">
-                    {logos.map((logo) => (
-                        <div key={logo.name} className="flex items-center justify-center">
-                            <Image
-                                src={logo.src}
-                                alt={logo.name}
-                                width={160}
-                                height={40}
-                                decoding="async"
-                                sizes="(min-width: 768px) 180px, (min-width: 640px) 25vw, 45vw"
-                                className="h-4 sm:h-5 md:h-10 w-auto object-contain brightness-0 invert opacity-90"
+        // circular badge, can be a bit smaller
+        { name: "Jägermeister", src: "/brand/jagermeister.png", className: "w-16 md:w-18" },
+
+        // dark-on-dark → force invert/brightness + give it more width
+        {
+            name: "Kreative Kornerr",
+            src: "/brand/kreative-kornerr.jpg",
+            className: "w-32 md:w-40"},
+
+        // long but small logo → bump width
+        { name: "Studio Bananaaa", src: "/brand/studio-banana.png", className: "w-24 md:w-28" },
+
+        // tall “Z” → a bit narrower
+        { name: "Zee Entertainment", src: "/brand/zee-entertainment.png", className: "w-14 md:w-16" },
+    ];
+
+    return (
+        <section className="relative py-6 md:py-8">
+            <p className="text-center text-xs tracking-[0.32em] uppercase text-slate-900/70 mb-4">
+                WE’VE WORKED WITH HUNDREDS OF AMAZING PEOPLE
+            </p>
+
+            <div className="mx-auto max-w-6xl rounded-[1.6rem] bg-black shadow-[0_28px_70px_rgba(0,0,0,0.35)] px-6 md:px-10 min-h-[9.5rem] flex items-center">
+                <div className="grid grid-cols-5 items-center gap-6 md:gap-10 w-full">
+                    {clients.map((client) => (
+                        <div
+                            key={client.name}
+                            className="flex items-center justify-center min-h-[5rem]"
+                        >
+                            <img
+                                src={client.src}
+                                alt={client.name}
+                                className={`object-contain ${client.className}`}
                             />
-                            <span className="sr-only">{logo.name}</span>
                         </div>
                     ))}
                 </div>
