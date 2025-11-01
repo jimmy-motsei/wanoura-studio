@@ -41,7 +41,7 @@ const scores = [
 
 export default function OriginalCompositionsLight() {
     return (
-        <section id="work" className="py-20 sm:py-24 bg-white">
+        <section className="py-20 sm:py-24 bg-white">
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                 <div className="flex items-start justify-between gap-6">
                     <div>

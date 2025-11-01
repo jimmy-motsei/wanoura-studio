@@ -1,6 +1,6 @@
 import { CONTACT_EMAIL } from "../lib/contact";
 
-export default function ContactCTALight() {
+export default function FooterLight() {
     return (
         <section className="bg-white text-neutral-900 px-4 py-20 sm:py-24">
             <div className="mx-auto max-w-5xl">

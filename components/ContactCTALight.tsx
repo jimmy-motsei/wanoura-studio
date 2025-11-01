@@ -2,7 +2,7 @@ import { CONTACT_EMAIL } from "../lib/contact";
 
 export default function ContactCTALight() {
     return (
-        <section id="contact" className="bg-white py-20">
+        <section className="bg-white py-20">
             <div className="mx-auto max-w-5xl rounded-[32px] border border-neutral-200 bg-white/70 p-10 lg:p-14 shadow-[0_24px_80px_rgba(15,23,42,0.06)]">
                 <div className="max-w-2xl">
                     <p className="text-xs font-medium uppercase tracking-[0.4em] text-neutral-400">

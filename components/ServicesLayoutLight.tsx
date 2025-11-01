@@ -34,7 +34,6 @@ export default function ServicesLayoutLight() {
                                 width={800}
                                 height={1000}
                                 className="object-cover object-center w-full h-full"
-                                priority
                             />
                         </div>
                     </div>
