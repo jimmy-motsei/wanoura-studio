@@ -55,14 +55,16 @@ export default function AboutUs() {
           </div>
 
           {/* Right: Image */}
-          <figure className="relative w-full self-start rounded-2xl overflow-hidden">
+          <figure
+            className="about-media rounded-2xl overflow-hidden"
+            style={{ maxHeight: "var(--copy-h, 80vh)" }}
+          >
             <img
               src="/images/founder.jpeg"
               alt="Onkgopotse Motsei speaking on a microphone"
               loading="lazy"
               decoding="async"
-              className="w-full h-auto object-contain"
-              style={{ maxHeight: "var(--copy-h, 80vh)" }}
+              className="block w-full h-auto object-contain"
             />
           </figure>
         </div>
