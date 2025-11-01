@@ -1,0 +1,102 @@
+/* components/WorkCard.module.css */
+
+.work-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 1rem;
+    background: #121212; /* same dark as CTA */
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* play button */
+.work-card__play {
+    width: 42px;
+    height: 42px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(18, 18, 18, 0.3);
+    display: grid;
+    place-items: center;
+    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+}
+
+.work-card__play-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background: #fff;
+}
+
+.work-card__play:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* content */
+.work-card__body {
+    min-width: 0;
+}
+
+.work-card__client {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.work-card__title {
+    font-weight: 600;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+    color: #fff;
+}
+
+.work-card__desc {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 46rem;
+}
+
+.work-card__meta {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.work-card__year {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    white-space: nowrap;
+}
+
+/* page-specific tightening */
+#moving-pictures .work-card {
+    padding: 0.85rem 1.25rem;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .work-card {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+    .work-card__year {
+        justify-self: start;
+        margin-top: 0.5rem;
+        grid-column: 2;
+    }
+}

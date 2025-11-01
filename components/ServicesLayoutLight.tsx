@@ -1,105 +1,66 @@
-"use client";
-
-import Image from "next/image";
-
+// components/ServicesLayoutLight.tsx
 export default function ServicesLayoutLight() {
     return (
-        <section className="bg-white text-neutral-900 py-24 border-t border-neutral-200">
-            <div className="mx-auto max-w-6xl px-6">
-                {/* Section header */}
-                <header className="mb-12 max-w-3xl">
-                    <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-neutral-500">
-                        Services
-                    </p>
+        <section id="services" className="section bg-white">
+            <div className="container max-w-5xl mx-auto">
+                {/* Eyebrow */}
+                <p className="section-label text-slate-400">Services</p>
 
-                    <h2 className="mt-3 text-[1.5rem] leading-[1.2] tracking-[-0.03em] font-medium text-neutral-900">
-                        We help you identify, explore and<br/>
-                        respond to new opportunities.
-                    </h2>
+                {/* Title */}
+                <h2 className="text-4xl sm:text-[2.65rem] leading-tight tracking-[-0.02em] text-slate-900 max-w-3xl">
+                    Sound that works for screen, digital, and live experiences.
+                </h2>
 
-                    <p className="mt-6 text-[13px] leading-relaxed text-neutral-600">
-                        As long as those opportunities involve giving us money to re-purpose old
-                        projects — we can come up with an endless number of those.
-                    </p>
-                </header>
+                {/* Intro */}
+                <p className="mt-4 text-[1.05rem] leading-relaxed text-slate-600 max-w-3xl">
+                    We craft music, voice, and sonic systems that carry emotion, guide narrative,
+                    and land impact in campaign work, film, trailers, podcasts, products, and experiences.
+                </p>
 
-                {/* 2-col layout */}
-                <div className="grid gap-12 lg:grid-cols-2 items-stretch services-layout">
-                    {/* LEFT: masked / angled image */}
-                    <div className="relative flex items-start justify-center services-media h-full">
-                        <div className="relative w-full max-w-md h-full overflow-hidden rounded-xl bg-neutral-100 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)]">
-                            <Image
-                                src="/images/sound-studio-portrait.jpg"
-                                alt="Studio microphone in front of DAW screen"
-                                width={800}
-                                height={1200}
-                                className="w-full h-full object-cover object-center"
-                            />
-                        </div>
+                {/* Service grid */}
+                <div className="mt-10 grid gap-10 md:grid-cols-2">
+                    {/* 1 */}
+                    <div className="flex flex-col gap-3 border-l-2 border-slate-100 pl-5">
+                        <h3 className="text-base font-semibold tracking-tight text-white/90 bg-[#151517] px-3 py-1 rounded-full w-fit">
+                            Voice direction &amp; vocal strategy
+                        </h3>
+                        <p className="text-slate-600">
+                            Casting, direction, and story-first delivery for campaigns, digital content,
+                            and character-led work. We guide tone, pacing, and emotional clarity.
+                        </p>
                     </div>
 
-                    {/* RIGHT: bullet services */}
-                    <div className="flex flex-col text-[13px] leading-relaxed text-neutral-900">
-                        {/* Service 1 */}
-                        <div className="py-5 border-b border-neutral-200">
-                            <p className="text-[13px] font-semibold text-neutral-900">
-                                Sonic Identity & Branding.
-                            </p>
-                            <p className="mt-2 text-neutral-600 text-[13px] leading-relaxed">
-                                We design the voice your brand lives in — music themes,
-                                emotional motifs, textural signatures, vocal direction,
-                                positioning. Distinctive sound that’s yours, not stock.
-                            </p>
-                        </div>
+                    {/* 2 */}
+                    <div className="flex flex-col gap-3 border-l-2 border-slate-100 pl-5">
+                        <h3 className="text-base font-semibold tracking-tight text-white/90 bg-[#151517] px-3 py-1 rounded-full w-fit">
+                            Score, sonic identity &amp; delivery
+                        </h3>
+                        <p className="text-slate-600">
+                            Original music, brand-aligned motifs, stings, and broadcast/streaming-ready
+                            mix &amp; master. Fast turnaround for spots, trailers, motion, and social.
+                        </p>
+                    </div>
 
-                        {/* Service 2 */}
-                        <div className="py-5 border-b border-neutral-200">
-                            <p className="text-[13px] font-semibold text-neutral-900">
-                                Sound Design & Original Composition.
-                            </p>
-                            <p className="mt-2 text-neutral-600 text-[13px] leading-relaxed">
-                                Themes, cues, scoring, foley, atmospheres, transitions.
-                                Built for screen, digital, and interactive. We craft sound
-                                that carries emotion, guides narrative, and lands impact
-                                in campaign work, film, trailers, podcasts, and products.
-                            </p>
-                        </div>
+                    {/* 3 */}
+                    <div className="flex flex-col gap-3 border-l-2 border-slate-100 pl-5">
+                        <h3 className="text-base font-semibold tracking-tight text-white/90 bg-[#151517] px-3 py-1 rounded-full w-fit">
+                            Experiential &amp; spatial audio
+                        </h3>
+                        <p className="text-slate-600">
+                            Immersive, room-aware sound for installations, events, and retail — built to
+                            translate across systems without losing impact.
+                        </p>
+                    </div>
 
-                        {/* Service 3 */}
-                        <div className="py-5 border-b border-neutral-200">
-                            <p className="text-[13px] font-semibold text-neutral-900">
-                                Voice Direction & Vocal Strategy.
-                            </p>
-                            <p className="mt-2 text-neutral-600 text-[13px] leading-relaxed">
-                                Casting, directing, and shaping delivery to feel human,
-                                intentional, and on-brand — from commercial VO to narrative
-                                storytelling. We guide tone, pacing, and emotional clarity.
-                            </p>
-                        </div>
-
-                        {/* Service 4 */}
-                        <div className="py-5 border-b border-neutral-200">
-                            <p className="text-[13px] font-semibold text-neutral-900">
-                                Mixing, Mastering & Delivery.
-                            </p>
-                            <p className="mt-2 text-neutral-600 text-[13px] leading-relaxed">
-                                Broadcast spec, cinema mix, podcast clarity, multi-platform
-                                loudness and translation. Clean dialogue, balanced stems,
-                                dynamic control — ready for rollout across channels.
-                            </p>
-                        </div>
-
-                        {/* Service 5 */}
-                        <div className="py-5">
-                            <p className="text-[13px] font-semibold text-neutral-900">
-                                Experiential & Spatial Audio.
-                            </p>
-                            <p className="mt-2 text-neutral-600 text-[13px] leading-relaxed">
-                                Immersive, multi-channel sound for events, installations,
-                                and branded environments. We design presence — not just
-                                sound — so the audience feels it in their body.
-                            </p>
-                        </div>
+                    {/* 4 */}
+                    <div className="flex flex-col gap-3 border-l-2 border-slate-100 pl-5">
+                        <h3 className="text-base font-semibold tracking-tight text-white/90 bg-[#151517] px-3 py-1 rounded-full w-fit">
+                            Podcast / longform sound
+                        </h3>
+                        <p className="text-slate-600">
+                            Editorial polish, beds, ID tones, and delivery templates so your team can
+                            produce at volume while keeping the Wanoura loudness + warmth.
+                        </p>
                     </div>
                 </div>
             </div>

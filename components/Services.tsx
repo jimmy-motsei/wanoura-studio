@@ -30,24 +30,24 @@ QC includes loudness, phase, mono checks — so your message translates anywhere
     ];
 
     return (
-        <section className="w-full bg-neutral-950 px-6 md:px-12 lg:px-24 py-20 md:py-28 border-t border-neutral-900/50">
-            <div className="max-w-5xl">
-                <p className="text-[11px] uppercase tracking-wide text-neutral-500 font-medium mb-4">
+        <section className="section w-full bg-neutral-950 border-t border-neutral-900/50">
+            <div className="container max-w-5xl">
+                <p className="eyebrow text-neutral-400">
                     What we do
                 </p>
 
-                <h2 className="text-lg md:text-xl font-semibold text-white leading-relaxed max-w-3xl mb-8">
+                <h2 className="text-lg md:text-xl font-semibold text-white leading-relaxed max-w-3xl mb-2">
                     We design sound that moves.
                 </h2>
 
-                <p className="text-neutral-400 text-sm md:text-base leading-relaxed max-w-3xl mb-12">
+                <p className="text-neutral-400 text-sm md:text-base leading-relaxed max-w-3xl mb-8">
                     We craft original scores, immersive sound design, voice direction,
                     and branded audio systems that make messages memorable and experiences
                     intuitive. From film and campaigns to products and podcasts, our work
                     is built for clarity, emotion, and multi-platform delivery.
                 </p>
 
-                <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <div className="card-grid">
                     {cards.map((card, i) => (
                         <motion.div
                             key={i}
@@ -55,17 +55,17 @@ QC includes loudness, phase, mono checks — so your message translates anywhere
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: i * 0.05 }}
-                            className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-5 shadow-[0_30px_120px_rgba(0,0,0,0.8)]"
+                            className="service-item service-item--dark"
                         >
-                            <p className="text-[10px] uppercase tracking-[0.12em] text-neutral-500 mb-3 leading-relaxed">
+                            <p className="eyebrow text-neutral-400 mb-2">
                                 {card.eyebrow}
                             </p>
 
-                            <h3 className="text-white font-semibold text-base leading-snug mb-3">
+                            <h3 className="text-white font-semibold text-base leading-snug mb-2">
                                 {card.title}
                             </h3>
 
-                            <p className="text-neutral-400 text-[0.8rem] leading-relaxed whitespace-pre-line">
+                            <p className="text-neutral-400 text-[0.9rem] leading-relaxed whitespace-pre-line">
                                 {card.body}
                             </p>
                         </motion.div>

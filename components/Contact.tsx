@@ -8,15 +8,15 @@ export default function Contact() {
     return (
         <section
             id="contact"
-            className="w-full bg-white text-neutral-900 py-24 px-6 md:px-12 lg:px-24">
-            <div className="max-w-6xl mx-auto">
+            className="section w-full bg-white text-neutral-900">
+            <div className="container max-w-6xl mx-auto">
                 {/* Outer card */}
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="bg-neutral-900 text-neutral-100 rounded-2xl border border-neutral-800 shadow-2xl p-8 md:p-10 lg:p-12 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12"
+                    className="contact-block text-white shadow-2xl p-8 md:p-10 lg:p-12 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12"
                 >
                     {/* Left block: headline + CTA */}
                     <div className="lg:max-w-sm flex-1">
@@ -31,12 +31,13 @@ export default function Contact() {
                         </p>
 
                         <button
-                            className="inline-flex items-center rounded-full border border-neutral-500 bg-transparent text-white text-sm font-medium px-4 py-2 hover:bg-white hover:text-neutral-900 transition-colors"
+                            className="btn-primary"
                             onClick={() => {
                                 window.location.href = `mailto:${CONTACT_EMAIL}?subject=Project%20Enquiry`;
                             }}
                         >
                             Say Hello
+                            <span className="icon">→</span>
                         </button>
                     </div>
 

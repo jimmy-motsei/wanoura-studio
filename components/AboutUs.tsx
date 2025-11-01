@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function AboutUs() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -56,13 +57,14 @@ export default function AboutUs() {
 
           {/* Right: Image */}
           <figure className="about-media rounded-2xl overflow-hidden grid place-items-center">
-            <img
-              src="/images/founder.jpeg"
+            <Image
+              src="/brand/founder.png"
               alt="Onkgopotse Motsei speaking on a microphone"
-              loading="lazy"
-              decoding="async"
-              className="block w-auto max-w-full h-auto"
-              style={{ maxHeight: "min(80vh, 640px)", objectFit: "contain" }}
+              width={720}
+              height={720}
+              className="w-full max-w-[520px] h-auto rounded-xl object-cover"
+              sizes="(min-width: 1024px) 520px, 90vw"
+              priority={false}
             />
           </figure>
         </div>
