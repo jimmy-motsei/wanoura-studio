@@ -1,6 +1,6 @@
 export default function SelectedWorkLight() {
     return (
-        <section className="bg-white text-neutral-900 px-4 py-16 sm:py-24">
+        <section className="bg-white text-neutral-900 px-4 py-16 sm:py-24" id="selected-work">
             <div className="mx-auto max-w-5xl">
                 {/* Section header */}
                 <header className="max-w-3xl">
@@ -23,7 +23,7 @@ export default function SelectedWorkLight() {
                 {/* Cards grid */}
                 <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {/* CARD 1 */}
-                    <article className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+                    <article className="rounded-xl border-[3px] border-neutral-200 bg-white p-6 shadow-sm work-card">
                         <div className="text-[10px] uppercase tracking-[0.12em] text-neutral-500 flex flex-wrap gap-2">
                             <span className="font-medium">2024 · Launch Film</span>
                             <span className="text-neutral-400">/ Sonic Identity</span>
@@ -47,7 +47,7 @@ export default function SelectedWorkLight() {
                     </article>
 
                     {/* CARD 2 */}
-                    <article className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+                    <article className="rounded-xl border-[3px] border-neutral-200 bg-white p-6 shadow-sm work-card">
                         <div className="text-[10px] uppercase tracking-[0.12em] text-neutral-500 flex flex-wrap gap-2">
                             <span className="font-medium">2024 · Brand World</span>
                             <span className="text-neutral-400">/ Voice & Identity</span>
@@ -71,7 +71,7 @@ export default function SelectedWorkLight() {
                     </article>
 
                     {/* CARD 3 */}
-                    <article className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+                    <article className="rounded-xl border-[3px] border-neutral-200 bg-white p-6 shadow-sm work-card">
                         <div className="text-[10px] uppercase tracking-[0.12em] text-neutral-500 flex flex-wrap gap-2">
               <span className="font-medium">
                 2023 · Show / Cultural Moment

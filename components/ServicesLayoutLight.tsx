@@ -24,16 +24,16 @@ export default function ServicesLayoutLight() {
                 </header>
 
                 {/* 2-col layout */}
-                <div className="grid gap-12 lg:grid-cols-2">
+                <div className="grid gap-12 lg:grid-cols-2 items-stretch services-layout">
                     {/* LEFT: masked / angled image */}
-                    <div className="relative flex items-start justify-center">
-                        <div className="relative w-full max-w-md overflow-hidden rounded-xl bg-neutral-100 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)]">
+                    <div className="relative flex items-start justify-center services-media h-full">
+                        <div className="relative w-full max-w-md h-full overflow-hidden rounded-xl bg-neutral-100 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)]">
                             <Image
-                                src="/images/mixing-desk-2.jpg"
-                                alt="Wanoura in session, sculpting sound."
+                                src="/images/sound-studio-portrait.jpg"
+                                alt="Studio microphone in front of DAW screen"
                                 width={800}
-                                height={1000}
-                                className="object-cover object-center w-full h-full"
+                                height={1200}
+                                className="w-full h-full object-cover object-center"
                             />
                         </div>
                     </div>

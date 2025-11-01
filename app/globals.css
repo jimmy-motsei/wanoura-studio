@@ -3,6 +3,10 @@
 /* Global dark-mode hint OFF by default – we’re doing light */
 :root {
     color-scheme: light;
+    /* Design token: responsive spacing (XXL) */
+    --space-xxl: clamp(4rem, 8vw, 8rem);
+    /* Section rhythm maps to token */
+    --section-gap: var(--space-xxl);
 }
 
 /* Typography smoothing */
@@ -17,3 +21,14 @@ body {
 }
 
 /* You can add shared utility classes here if needed later */
+
+/* Ensure all images have rounded corners by default */
+img {
+    border-radius: 0.75rem; /* matches ~rounded-xl */
+}
+
+/* Section spacing parity: About ↔ Client Logos */
+#about,
+#client-logos {
+    margin-bottom: var(--section-gap);
+}

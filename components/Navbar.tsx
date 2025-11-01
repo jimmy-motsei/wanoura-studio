@@ -4,9 +4,9 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 
 const navItems = [
-    { label: "Work", href: "#work" },
+    { label: "Work", href: "#selected-work" },
     { label: "Services", href: "#services" },
-    { label: "Clients", href: "#clients" },
+    { label: "Clients", href: "#client-logos" },
     { label: "Contact", href: "#contact" },
 ];
 

@@ -1,4 +1,5 @@
 import HeroLight from "@/components/HeroLight";
+import AboutUs from "@/components/AboutUs";
 import ClientsStripLight from "@/components/ClientsStripLight";
 import SelectedWorkLight from "@/components/SelectedWorkLight";
 import ServicesLayoutLight from "@/components/ServicesLayoutLight";
@@ -15,13 +16,18 @@ export default function Home() {
                 <HeroLight />
             </section>
 
+            {/* About Us – Meet the Founder */}
+            <section id="about">
+                <AboutUs />
+            </section>
+
             {/* Clients strip */}
-            <section id="clients">
+            <section id="client-logos">
                 <ClientsStripLight />
             </section>
 
             {/* Selected work (the old “work” section) */}
-            <section id="work">
+            <section id="selected-work">
                 <SelectedWorkLight />
             </section>
 
@@ -36,7 +42,7 @@ export default function Home() {
             </section>
 
             {/* Original compositions / custom scores */}
-            <section id="original-compositions">
+            <section id="moving-pictures">
                 <OriginalCompositionsLight />
             </section>
 
