@@ -6,7 +6,8 @@ export default function HeroLight() {
                 <div className="max-w-3xl">
                     {/* Headline */}
                     <h1 className="display text-[2rem] leading-[1.15] tracking-[-0.035em] font-medium text-neutral-900 md:text-[2.25rem] md:leading-[1.15]">
-                        Warouna - The Legacy of Sound
+                        Warouna<br />
+                        <span className="hero-nowrap">The Legacy of Sound</span>
                     </h1>
 
                     <h2 className="subtitle text-neutral-900">Award-Winning Sonic Design Studio</h2>

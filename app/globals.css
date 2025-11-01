@@ -68,6 +68,7 @@ h1.display {
     --hero-paragraph: #3a3a3a; /* AA contrast on white */
 }
 .hero .display { font-weight: 700; }
+.hero .display { line-height: 0.96; }
 .hero .subtitle {
     font-size: clamp(1.75rem, 2.6vw, 2.5rem);
     line-height: 1.1;
@@ -82,6 +83,12 @@ h1.display {
     margin-top: 1.25rem;
 }
 .hero .cta-brief{ margin-top: 1.25rem; }
+
+/* Keep second phrase together on wide screens, allow wrap on small */
+.hero-nowrap { white-space: nowrap; }
+@media (max-width: 640px){
+    .hero-nowrap { white-space: normal; }
+}
 
 /* Avoid fake bold/italic and enable optical sizing for variable fonts */
 * { font-synthesis: none; font-optical-sizing: auto; }
