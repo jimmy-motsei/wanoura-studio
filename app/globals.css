@@ -63,6 +63,26 @@ h1.display {
 /* Lead paragraph utility */
 .lead { font-size: clamp(1.0625rem, 1.4vw, 1.25rem); line-height: 1.6; color: color-mix(in oklab, #fff 82%, #000); }
 
+/* Hero subtitle + paragraph tone and spacing (keeps existing sizes/leading) */
+:root{
+    --hero-paragraph: #3a3a3a; /* AA contrast on white */
+}
+.hero .display { font-weight: 700; }
+.hero .subtitle {
+    font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    font-weight: 600;
+    margin-top: 0.75rem;
+}
+.hero .lead{
+    color: var(--hero-paragraph);
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    line-height: 1.6;
+    margin-top: 1.25rem;
+}
+.hero .cta-brief{ margin-top: 1.25rem; }
+
 /* Avoid fake bold/italic and enable optical sizing for variable fonts */
 * { font-synthesis: none; font-optical-sizing: auto; }
 
