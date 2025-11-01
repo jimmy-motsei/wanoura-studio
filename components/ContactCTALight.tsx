@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from "../lib/contact";
+
 export default function ContactCTALight() {
     return (
         <section id="contact" className="bg-white py-20">
@@ -77,7 +79,7 @@ export default function ContactCTALight() {
                             Send request
                         </button>
                         <p className="text-sm text-neutral-400">
-                            Or email us directly at <a href="mailto:hello@dreamwanoura.com" className="text-neutral-900 underline underline-offset-2 hover:text-neutral-500">hello@dreamwanoura.com</a>
+                            Or email us directly at <a href={`mailto:${CONTACT_EMAIL}`} className="text-neutral-900 underline underline-offset-2 hover:text-neutral-500">{CONTACT_EMAIL}</a>
                         </p>
                     </div>
                 </form>

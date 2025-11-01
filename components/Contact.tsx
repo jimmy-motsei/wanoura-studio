@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { CONTACT_EMAIL } from "../lib/contact";
 import { motion } from "framer-motion";
 
 export default function Contact() {
@@ -32,7 +33,7 @@ export default function Contact() {
                         <button
                             className="inline-flex items-center rounded-full border border-neutral-500 bg-transparent text-white text-sm font-medium px-4 py-2 hover:bg-white hover:text-neutral-900 transition-colors"
                             onClick={() => {
-                                window.location.href = "mailto:hello@wanoura.studio?subject=Project%20Enquiry";
+                                window.location.href = `mailto:${CONTACT_EMAIL}?subject=Project%20Enquiry`;
                             }}
                         >
                             Say Hello
@@ -56,10 +57,10 @@ export default function Contact() {
                             <div className="mt-4">
                                 <p className="text-neutral-100 font-medium">Email</p>
                                 <a
-                                    href="mailto:hello@wanoura.studio"
+                                    href={`mailto:${CONTACT_EMAIL}`}
                                     className="text-neutral-400 hover:text-white transition-colors"
                                 >
-                                    hello@wanoura.studio
+                                    {CONTACT_EMAIL}
                                 </a>
                             </div>
                         </div>
