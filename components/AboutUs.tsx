@@ -55,16 +55,14 @@ export default function AboutUs() {
           </div>
 
           {/* Right: Image */}
-          <figure
-            className="about-media rounded-2xl overflow-hidden"
-            style={{ maxHeight: "var(--copy-h, 80vh)" }}
-          >
+          <figure className="about-media rounded-2xl overflow-hidden grid place-items-center">
             <img
               src="/images/founder.jpeg"
               alt="Onkgopotse Motsei speaking on a microphone"
               loading="lazy"
               decoding="async"
-              className="block w-full h-auto object-contain"
+              className="block w-auto max-w-full h-auto"
+              style={{ maxHeight: "min(80vh, 640px)", objectFit: "contain" }}
             />
           </figure>
         </div>
