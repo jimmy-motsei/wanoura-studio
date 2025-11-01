@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
 /* Global dark-mode hint OFF by default – we’re doing light */
-:root {
+/* ---------- Typography: Geist (variable) ---------- */
+:root{
     color-scheme: light;
+    --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+
+    /* Display scale tuned to match visual */
+    --display-1-size: clamp(3rem, 8.2vw, 6rem);
+    --display-1-leading: 0.96;
+    --display-1-tracking: -0.01em;
+
+    /* Body copy */
+    --body-size: clamp(1rem, 0.9vw, 1.125rem);
+    --body-leading: 1.6;
+
     /* Design token: responsive spacing (XXL) */
     --space-xxl: clamp(4rem, 8vw, 8rem);
     /* Section rhythm maps to token */
@@ -10,6 +23,14 @@
 }
 
 /* Typography smoothing */
+html{
+    font-family: var(--font-sans);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
 body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -17,8 +38,26 @@ body {
             "liga" 1,
             "calt" 1;
     font-kerning: normal;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    font-variation-settings: "wght" 400;
+    font-weight: 400;
+    font-size: var(--body-size);
+    line-height: var(--body-leading);
 }
+
+/* Headings inherit Geist and consistent weights */
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-sans); font-weight: 700; }
+
+/* Hero headline display scale */
+.hero h1,
+h1.display {
+    font-size: var(--display-1-size);
+    line-height: var(--display-1-leading);
+    letter-spacing: var(--display-1-tracking);
+    font-weight: 700;
+}
+
+/* Lead paragraph utility */
+.lead { font-size: clamp(1.0625rem, 1.4vw, 1.25rem); line-height: 1.6; color: color-mix(in oklab, #fff 82%, #000); }
 
 /* You can add shared utility classes here if needed later */
 

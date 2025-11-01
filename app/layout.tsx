@@ -14,6 +14,15 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="bg-white">
+        <head>
+            {/* Google Fonts: Geist (variable) */}
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+            <link
+                href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+                rel="stylesheet"
+            />
+        </head>
         <body className="bg-white text-neutral-900 antialiased">
         <Navbar />
         {children}
