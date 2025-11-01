@@ -90,41 +90,6 @@ h1.display {
     .hero-nowrap { white-space: normal; }
 }
 
-/* Spacing by line-height tokens for hero */
-:root{
-    --lh-h1: 0.96;   /* hero display leading */
-    --lh-h2: 1.10;   /* subtitle leading */
-    --lh-body: 1.60; /* paragraph leading */
-}
-
-/* 1 line after H1 */
-.hero .display{
-    line-height: var(--lh-h1);
-    margin: 0 0 calc(1em * var(--lh-h1));
-}
-
-/* 2 lines after H2 */
-.hero .subtitle{
-    line-height: var(--lh-h2);
-    margin: 0 0 calc(2 * 1em * var(--lh-h2));
-}
-
-/* 4 lines between paragraph and CTA */
-.hero .lead{
-    line-height: var(--lh-body);
-    margin: 0 0 calc(4 * 1em * var(--lh-body));
-}
-
-/* Ensure the CTA doesn’t add extra top margin (spacing controlled by paragraph) */
-.hero .cta-brief{ margin-top: 0; }
-
-/* Optional: slightly tighter spacing on small screens */
-@media (max-width: 640px){
-    .hero .display{  margin-bottom: calc(0.75 * 1em * var(--lh-h1)); }
-    .hero .subtitle{ margin-bottom: calc(1.5 * 1em * var(--lh-h2)); }
-    .hero .lead{     margin-bottom: calc(3 * 1em * var(--lh-body)); }
-}
-
 /* Avoid fake bold/italic and enable optical sizing for variable fonts */
 * { font-synthesis: none; font-optical-sizing: auto; }
 
