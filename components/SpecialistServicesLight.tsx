@@ -1,51 +1,88 @@
 // components/SpecialistServicesLight.tsx
-import Link from "next/link";
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/motion";
+
+type Service = {
+    slug: "atmos-mixing" | "ai-studio-production";
+    title: string;
+    summary: string;
+    bullets: string[];
+};
+
+const services: Service[] = [
+    {
+        slug: "atmos-mixing",
+        title: "Dolby Atmos Mixing",
+        summary:
+            "Musical-first spatial mixes that translate—headphones, club, or certified rooms. Depth, direction, and space serving the story, never a gimmick.",
+        bullets: [
+            "Music, trailers, brand films, and spatial sound design",
+            "Headphone-first monitoring with room-checked delivery",
+            "ADM BWF / MP4 / binaural deliverables, QC and revisions",
+        ],
+    },
+    {
+        slug: "ai-studio-production",
+        title: "AI Studio & Production",
+        summary:
+            "Tasteful AI for speed and exploration—finals crafted by ear, agency-ready polish. Clear approvals on what's AI-assisted vs hand-performed.",
+        bullets: [
+            "Music ideation, stem cleanup, noise & artifact removal",
+            "Voice direction, timing fixes, and sound-design sketching",
+            "Human-led decisions; transparent provenance in delivery",
+        ],
+    },
+];
 
 export default function SpecialistServicesLight() {
     return (
-        <section id="specialist-services" className="section bg-white">
-            <div className="container mx-auto max-w-5xl">
-                <p className="section-label text-slate-400">Our specialist services</p>
-                <h2 className="text-3xl sm:text-[2.4rem] leading-tight tracking-[-0.02em] text-slate-900 mb-6">
-                    Built for premium delivery and future-ready production.
-                </h2>
+        <section aria-labelledby="specialist-heading" className="px-6 py-16">
+            <div className="mx-auto max-w-6xl">
+                {/* Motion-enhanced heading */}
+                <motion.h2
+                    id="specialist-heading"
+                    className="text-2xl font-semibold text-neutral-900"
+                    {...fadeUp(0)}
+                >
+                    Specialist Services
+                </motion.h2>
 
-                <div className="grid gap-8 md:grid-cols-2">
-                    {/* Atmos Mixing */}
-                    <article className="border-l-2 border-slate-100 pl-5 flex flex-col gap-3">
-                        <h3 className="text-base font-semibold text-slate-900">
-                            Atmos Mixing
-                        </h3>
-                        <p className="text-slate-600 leading-relaxed">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                            volutpat posuere tellus, a cursus enim porta at. Tailored for
-                            broadcast, streaming, and experiential sound.
-                        </p>
-                        <Link
-                            href="/atmos-mixing"
-                            className="text-sm font-medium text-slate-900 hover:opacity-70"
-                        >
-                            Learn more →
-                        </Link>
-                    </article>
+                {/* Motion-enhanced intro copy */}
+                <motion.p
+                    className="mt-2 max-w-2xl text-neutral-600"
+                    {...fadeUp(0.05)}
+                >
+                    Sound that moves like your story. Two focused offers designed for creative teams
+                    and ambitious artists.
+                </motion.p>
 
-                    {/* AI Studio and Production */}
-                    <article className="border-l-2 border-slate-100 pl-5 flex flex-col gap-3">
-                        <h3 className="text-base font-semibold text-slate-900">
-                            AI Studio and Production — launching soon
-                        </h3>
-                        <p className="text-slate-600 leading-relaxed">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Modular
-                            tools for rapid concepting, voice experiments, and adaptive music
-                            sketches — designed to stay on-brand.
-                        </p>
-                        <Link
-                            href="/ai-studio-production"
-                            className="text-sm font-medium text-slate-900 hover:opacity-70"
+                <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    {services.map((s, i) => (
+                        <motion.article
+                            key={s.slug}
+                            {...fadeUp(0.08 + i * 0.04)}
+                            className="group relative rounded-2xl border border-neutral-200/70 bg-white p-6 shadow-sm transition hover:shadow-md focus-within:shadow-md"
                         >
-                            Join the waitlist →
-                        </Link>
-                    </article>
+                            <h3 className="text-lg font-semibold text-neutral-900">{s.title}</h3>
+
+                            <p className="mt-3 text-sm leading-relaxed text-neutral-700">{s.summary}</p>
+
+                            <ul className="mt-4 space-y-1.5 text-sm text-neutral-700/90">
+                                {s.bullets.map((b) => (
+                                    <li key={b} className="flex gap-2">
+                                        <span className="mt-[0.4rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-300" />
+                                        <span>{b}</span>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            {/* keyboard-focus ring aid */}
+                            <span className="pointer-events-none absolute inset-0 rounded-2xl ring-0 focus-within:ring-2 focus-within:ring-neutral-300" />
+                        </motion.article>
+                    ))}
                 </div>
             </div>
         </section>

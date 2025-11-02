@@ -1,4 +1,9 @@
 // components/ClientsStripLight.tsx
+"use client";
+
+import { motion } from "framer-motion";
+import { fade } from "@/lib/motion";
+
 export default function ClientsStripLight() {
     const clients = [
         // nice, wide, already white
@@ -10,7 +15,7 @@ export default function ClientsStripLight() {
         // dark-on-dark → force invert/brightness + give it more width
         {
             name: "Kreative Kornerr",
-            src: "/brand/kreative-kornerr.jpg",
+            src: "/brand/Kreative-Kornerr.jpg",
             className: "w-32 md:w-40"},
 
         // long but small logo → bump width
