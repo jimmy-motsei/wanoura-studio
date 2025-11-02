@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from "@/lib/contact";
+
 export default function HeroLight() {
     return (
         <section className="relative bg-white hero" id="hero">
