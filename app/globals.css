@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+@layer base {
+  /* Sticky navbar height for anchor offsets */
+  :root { --nav-h: 64px; }
+
+  /* Move generic global colors into base so Tailwind utilities can override them */
+  body { color: #0c0c0c; }
+  /* Do NOT force paragraph colors globally; let sections/components control it */
+  p { color: inherit; }
+
+  /* Smooth scrolling by default (can be disabled via prefers-reduced-motion) */
+  html { scroll-behavior: smooth; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 /* =========================
    Global tokens
    ========================= */
@@ -43,7 +60,6 @@ body,
 p {
     font-size: var(--body-size);     /* 16px */
     line-height: var(--body-leading);/* 1.7rem */
-    color: #0c0c0c;
     font-weight: 400;
 }
 
@@ -156,3 +172,4 @@ img {
     color: #4a4a4a;
     max-width: 48rem;
 }
+

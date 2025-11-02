@@ -1,3 +1,4 @@
+// app/page.tsx (SERVER component – no "use client")
 import HeroLight from "@/components/HeroLight";
 import AboutUs from "@/components/AboutUs";
 import ClientsStripLight from "@/components/ClientsStripLight";
@@ -11,35 +12,40 @@ import FooterLight from "@/components/FooterLight";
 export default function Home() {
     return (
         <main className="min-h-screen bg-white text-neutral-900">
+            {/* Hero */}
             <section id="hero">
                 <HeroLight />
             </section>
 
+            {/* About */}
             <section id="about">
                 <AboutUs />
             </section>
 
-            {/* updated heights are inside this component */}
+            {/* Clients */}
             <section id="client-logos">
                 <ClientsStripLight />
             </section>
 
+            {/* Specialist services (cards) */}
             <section id="specialist">
                 <SpecialistServicesLight />
             </section>
 
+            {/* Services */}
             <section id="services">
                 <ServicesLayoutLight />
             </section>
 
+            {/* Testimonial */}
             <section id="testimonial">
                 <TestimonialLight />
             </section>
 
-            <section id="moving-pictures">
-                <OriginalCompositionsLight />
-            </section>
+            {/* Moving Pictures — the component contains its own <section id="moving-pictures"> */}
+            <OriginalCompositionsLight />
 
+            {/* Contact */}
             <section id="contact">
                 <ContactCTALight />
             </section>

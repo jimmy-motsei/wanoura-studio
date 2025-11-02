@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import WorksVimeoBinder from "@/components/WorksVimeoBinder";
 
 export const metadata: Metadata = {
     title: "Wanoura — The Legacy of Sound",
@@ -24,9 +25,10 @@ export default function RootLayout({
                 rel="stylesheet"
             />
         </head>
-        <body className="bg-white text-neutral-900 antialiased">
+        <body className="min-h-screen bg-white antialiased">
         <Navbar />
         {children}
+        <WorksVimeoBinder />
         </body>
         </html>
     );
