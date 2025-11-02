@@ -94,8 +94,8 @@ export default function WorksVimeoBinder() {
     <VideoLightbox
       open={open}
       onClose={() => setOpen(false)}
-      title={active?.title ?? null}
-      vimeoId={active?.vimeoId ?? null}
+      title={active?.title}
+      vimeoId={active?.vimeoId}
     />
   );
 }
