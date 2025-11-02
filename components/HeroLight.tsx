@@ -21,7 +21,7 @@ export default function HeroLight() {
 
                     {/* CTA: Upload your project brief */}
                     <a
-                        href="mailto:hello@dreamwarouna.com?subject=Project%20Brief"
+                        href="mailto:hello@dreamwanoura.com?subject=Project%20Brief"
                         className="cta-brief inline-flex mt-6 rounded-full bg-black px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                         aria-label="Upload your project brief – email Wanoura"
                     >
