@@ -3,8 +3,19 @@ import * as React from "react";
 import VideoLightbox from "@/components/VideoLightbox";
 import { WORKS } from "@/lib/works";
 
-// normalize to compare innerText reliably
-const n = (s: string) => s.replace(/\s+/g, " ").trim().toLowerCase();
+// Normalize text for matching (case, diacritics, quotes, dashes, extra spaces)
+const norm = (s: string) =>
+  s
+    .toLowerCase()
+    .normalize("NFD").replace(/\p{Diacritic}/gu, "")
+    .replace(/[’‘´`]/g, "'")
+    .replace(/[“”]/g, '"')
+    .replace(/[–—]/g, "-")
+    .replace(/\s+/g, " ")
+    .trim();
+
+// Index works by normalized title
+const INDEX = new Map(WORKS.map(w => [norm(w.title), w]));
 
 export default function WorksVimeoBinder() {
   const [open, setOpen] = React.useState(false);
@@ -15,25 +26,32 @@ export default function WorksVimeoBinder() {
     if (!root) return;
 
     const onClick = (e: MouseEvent) => {
-      // Walk up from target to the nearest card-like element
       const target = e.target as HTMLElement | null;
-      if (!target) return;
+      if (!target || !root.contains(target)) return;
 
-      const card = target.closest("button, a, [role='button'], li, article, div");
-      if (!card || !root.contains(card)) return;
+      // Find the nearest "card-like" container
+      const card = target.closest("#moving-pictures button, #moving-pictures a, #moving-pictures [role='button'], #moving-pictures li, #moving-pictures article, #moving-pictures div") as HTMLElement | null;
+      if (!card) return;
 
-      // Match by title text appearing within the card
-      const text = n(card.textContent || "");
-      const match = WORKS.find(w => text.includes(n(w.title)));
+      // Prefer explicit title nodes; fall back to aria-label; then full text
+      const titleNode = card.querySelector("h1,h2,h3,h4,[data-title]") as HTMLElement | null;
+      const rawTitle = titleNode?.innerText || card.getAttribute("aria-label") || card.textContent || "";
+      const n = norm(rawTitle);
+
+      // Try exact-contains match against our works index
+      let match = null as { title: string; vimeoId: string } | null;
+      for (const [key, w] of INDEX) {
+        if (n.includes(key)) { match = { title: w.title, vimeoId: w.vimeoId }; break; }
+      }
       if (!match) return;
 
-      // Prevent default navigation and open lightbox
       e.preventDefault();
       e.stopPropagation();
-      setActive({ title: match.title, vimeoId: match.vimeoId });
+      setActive(match);
       setOpen(true);
     };
 
+    // Capture phase so overlays don't swallow the click
     root.addEventListener("click", onClick, true);
     return () => root.removeEventListener("click", onClick, true);
   }, []);
