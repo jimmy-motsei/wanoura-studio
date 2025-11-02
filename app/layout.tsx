@@ -1,3 +1,5 @@
+import WorksVimeoBinder from "@/components/WorksVimeoBinder";
+
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -27,7 +29,8 @@ export default function RootLayout({
         <body className="bg-white text-neutral-900 antialiased">
         <Navbar />
         {children}
-        </body>
+          <WorksVimeoBinder />
+</body>
         </html>
     );
 }
