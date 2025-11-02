@@ -4,10 +4,10 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 
 const navItems = [
-    { label: "Work", href: "#selected-work" },
-    { label: "Services", href: "#services" },
-    { label: "Clients", href: "#client-logos" },
-    { label: "Contact", href: "#contact" },
+    { label: "Work", href: "/#moving-pictures" },
+    { label: "Services", href: "/#services" },
+    { label: "Clients", href: "/#client-logos" },
+    { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -35,7 +35,7 @@ export default function Navbar() {
                 {/* CTA */}
                 <div className="hidden md:block">
                     <a
-                        href="#contact"
+                        href="/#contact"
                         className="rounded-full bg-black px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-900"
                     >
                         Get in touch
