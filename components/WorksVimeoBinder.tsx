@@ -3,7 +3,7 @@ import * as React from "react";
 import VideoLightbox from "@/components/VideoLightbox";
 import { WORKS } from "@/lib/works";
 
-// Normalize text for matching (case, diacritics, quotes, dashes, extra spaces)
+// Normalize for robust text matching
 const norm = (s: string) =>
   s
     .toLowerCase()
@@ -14,8 +14,20 @@ const norm = (s: string) =>
     .replace(/\s+/g, " ")
     .trim();
 
-// Index works by normalized title
-const INDEX = new Map(WORKS.map(w => [norm(w.title), w]));
+// Build indexes (title + optional slug)
+const TITLE_INDEX = new Map(WORKS.map(w => [norm(w.title), w]));
+const SLUG_INDEX = new Map(WORKS.map(w => [norm(w.slug), w]));
+
+// climb to the actual card container (li/article/[data-card]) if possible
+function toCardContainer(start: HTMLElement, root: HTMLElement) {
+  const firstHit =
+    start.closest("#moving-pictures li, #moving-pictures article, #moving-pictures [data-card]") as HTMLElement | null;
+  if (firstHit) return firstHit;
+  // fallback: closest generic clickable wrapper
+  return start.closest(
+    "#moving-pictures button, #moving-pictures a, #moving-pictures [role='button'], #moving-pictures div"
+  ) as HTMLElement | null;
+}
 
 export default function WorksVimeoBinder() {
   const [open, setOpen] = React.useState(false);
@@ -29,21 +41,35 @@ export default function WorksVimeoBinder() {
       const target = e.target as HTMLElement | null;
       if (!target || !root.contains(target)) return;
 
-      // Find the nearest "card-like" container
-      const card = target.closest("#moving-pictures button, #moving-pictures a, #moving-pictures [role='button'], #moving-pictures li, #moving-pictures article, #moving-pictures div") as HTMLElement | null;
-      if (!card) return;
+      const container = toCardContainer(target, root);
+      if (!container) return;
 
-      // Prefer explicit title nodes; fall back to aria-label; then full text
-      const titleNode = card.querySelector("h1,h2,h3,h4,[data-title]") as HTMLElement | null;
-      const rawTitle = titleNode?.innerText || card.getAttribute("aria-label") || card.textContent || "";
-      const n = norm(rawTitle);
-
-      // Try exact-contains match against our works index
-      let match = null as { title: string; vimeoId: string } | null;
-      for (const [key, w] of INDEX) {
-        if (n.includes(key)) { match = { title: w.title, vimeoId: w.vimeoId }; break; }
+      // Preferred: explicit data attribute (future-proof if we add it)
+      const ds = (container.closest("[data-work]") as HTMLElement | null)?.dataset?.work;
+      if (ds) {
+        const bySlug = SLUG_INDEX.get(norm(ds));
+        if (bySlug) {
+          e.preventDefault(); e.stopPropagation();
+          setActive({ title: bySlug.title, vimeoId: bySlug.vimeoId });
+          setOpen(true);
+          return;
+        }
       }
-      if (!match) return;
+
+      // Try heading nodes first, then whole container text
+      const titleNode = container.querySelector("h1,h2,h3,h4,[data-title]") as HTMLElement | null;
+      const rawTitle = titleNode?.innerText || container.getAttribute("aria-label") || container.innerText || "";
+      const text = norm(rawTitle) || norm(container.innerText || container.textContent || "");
+
+      // Exact-title containment match
+      let match: { title: string; vimeoId: string } | null = null;
+      for (const [key, w] of TITLE_INDEX) {
+        if (text.includes(key)) {
+          match = { title: w.title, vimeoId: w.vimeoId };
+          break;
+        }
+      }
+      if (!match) return; // no modal if we don't positively identify
 
       e.preventDefault();
       e.stopPropagation();
@@ -51,7 +77,7 @@ export default function WorksVimeoBinder() {
       setOpen(true);
     };
 
-    // Capture phase so overlays don't swallow the click
+    // capture phase so inner elements (icon/circle) can't swallow the click
     root.addEventListener("click", onClick, true);
     return () => root.removeEventListener("click", onClick, true);
   }, []);
