@@ -28,7 +28,7 @@ export default function FooterLight() {
                                 </a>
 
                                 <a
-                                    href="#contact"
+                                    href="/#contact"
                                     className="inline-flex items-center justify-center rounded-full border border-neutral-600/60 px-4 py-2 font-medium text-neutral-100 hover:bg-neutral-800 transition"
                                 >
                                     Start a Project
