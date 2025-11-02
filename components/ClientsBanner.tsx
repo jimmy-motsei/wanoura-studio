@@ -3,7 +3,7 @@
 const clients = [
     { name: "Nike", src: "/brand/nike.png" },
     { name: "Jägermeister", src: "/brand/jagermeister.png" },
-    { name: "Kreative Kornerr", src: "/brand/kreative-kornerr.png" },
+    { name: "Kreative Kornerr", src: "/brand/Kreative-Kornerr.jpg" },
     // if you want to re-add later:
     // { name: "Studio Banana", src: "/brand/studio-banana.png" },
     // { name: "Zee Entertainment", src: "/brand/zee-entertainment.png" },
