@@ -1,28 +1,29 @@
 // components/ClientsStripLight.tsx
 "use client";
 
-import { motion } from "framer-motion";
-import { fade } from "@/lib/motion";
+import Image from "next/image";
 
 export default function ClientsStripLight() {
     const clients = [
         // nice, wide, already white
-        { name: "Nike", src: "/brand/nike.png", className: "w-20 md:w-24" },
+        { name: "Nike", src: "/brand/nike.png", width: 160, height: 60 },
 
         // circular badge, can be a bit smaller
-        { name: "Jägermeister", src: "/brand/jagermeister.png", className: "w-16 md:w-18" },
+        { name: "Jägermeister", src: "/brand/jagermeister.png", width: 120, height: 120 },
 
         // dark-on-dark → force invert/brightness + give it more width
         {
             name: "Kreative Kornerr",
             src: "/brand/Kreative-Kornerr.jpg",
-            className: "w-32 md:w-40"},
+            width: 220,
+            height: 100,
+        },
 
         // long but small logo → bump width
-        { name: "Studio Bananaaa", src: "/brand/studio-banana.png", className: "w-24 md:w-28" },
+        { name: "Studio Bananaaa", src: "/brand/studio-banana.png", width: 190, height: 70 },
 
         // tall “Z” → a bit narrower
-        { name: "Zee Entertainment", src: "/brand/zee-entertainment.png", className: "w-14 md:w-16" },
+        { name: "Zee Entertainment", src: "/brand/zee-entertainment.png", width: 120, height: 120 },
     ];
 
     return (
@@ -38,10 +39,14 @@ export default function ClientsStripLight() {
                             key={client.name}
                             className="flex items-center justify-center min-h-[5rem]"
                         >
-                            <img
+                            <Image
                                 src={client.src}
                                 alt={client.name}
-                                className={`object-contain ${client.className}`}
+                                width={client.width}
+                                height={client.height}
+                                className="h-10 w-auto md:h-12"
+                                sizes="(min-width: 1024px) 200px, (min-width: 768px) 160px, 140px"
+                                priority
                             />
                         </div>
                     ))}

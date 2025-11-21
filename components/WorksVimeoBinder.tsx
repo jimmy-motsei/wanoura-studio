@@ -19,8 +19,8 @@ export default function WorksVimeoBinder() {
   const [active, setActive] = React.useState<{ title: string; vimeoId: string } | null>(null);
 
   React.useEffect(() => {
-    let root: HTMLElement | null = null;
-    let detach: (() => void) | undefined;
+    const root = document.getElementById("moving-pictures");
+    if (!root) return undefined;
 
     const resolve = (target: HTMLElement) => {
       const card = target.closest<HTMLElement>("[data-work]");
@@ -36,7 +36,7 @@ export default function WorksVimeoBinder() {
     };
 
     const onClick = (e: MouseEvent) => {
-      if (!root || !(e.target instanceof HTMLElement)) return;
+      if (!(e.target instanceof HTMLElement)) return;
       if (!root.contains(e.target)) return;
       const work = resolve(e.target);
       if (!work) return;
@@ -47,7 +47,7 @@ export default function WorksVimeoBinder() {
     };
 
     const onKey = (e: KeyboardEvent) => {
-      if (!root || !(e.target instanceof HTMLElement)) return;
+      if (!(e.target instanceof HTMLElement)) return;
       if (!root.contains(e.target)) return;
       if (e.key !== "Enter" && e.key !== " ") return;
       const work = resolve(e.target);
@@ -58,36 +58,21 @@ export default function WorksVimeoBinder() {
       setOpen(true);
     };
 
-    const attach = () => {
-      root = document.getElementById("moving-pictures");
-      if (!root) return false;
+    // Safety: make wrappers keyboard-activatable when not a button
+    root.querySelectorAll<HTMLElement>("[data-work]").forEach((el) => {
+      if (!el.matches("a,button,[role='button']") && !el.querySelector("a,button,[role='button']")) {
+        el.tabIndex ||= 0;
+        el.setAttribute("role", el.getAttribute("role") || "button");
+      }
+    });
 
-      // Safety: make wrappers keyboard-activatable when not a button
-      root.querySelectorAll<HTMLElement>("[data-work]").forEach((el) => {
-        if (!el.matches("a,button,[role='button']") && !el.querySelector("a,button,[role='button']")) {
-          el.tabIndex ||= 0;
-          el.setAttribute("role", el.getAttribute("role") || "button");
-        }
-      });
+    root.addEventListener("click", onClick, true);
+    root.addEventListener("keydown", onKey, true);
 
-      root.addEventListener("click", onClick, true);
-      root.addEventListener("keydown", onKey, true);
-      detach = () => {
-        root?.removeEventListener("click", onClick, true);
-        root?.removeEventListener("keydown", onKey, true);
-      };
-      return true;
+    return () => {
+      root.removeEventListener("click", onClick, true);
+      root.removeEventListener("keydown", onKey, true);
     };
-
-    if (!attach()) {
-      const obs = new MutationObserver(() => {
-        if (attach()) obs.disconnect();
-      });
-      obs.observe(document.body, { childList: true, subtree: true });
-      detach = () => obs.disconnect();
-    }
-
-    return () => detach?.();
   }, []);
 
   return (

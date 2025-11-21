@@ -2,12 +2,14 @@
 import HeroLight from "@/components/HeroLight";
 import AboutUs from "@/components/AboutUs";
 import ClientsStripLight from "@/components/ClientsStripLight";
+import SelectedWorkLight from "@/components/SelectedWorkLight";
 import SpecialistServicesLight from "@/components/SpecialistServicesLight";
 import ServicesLayoutLight from "@/components/ServicesLayoutLight";
 import TestimonialLight from "@/components/TestimonialLight";
 import OriginalCompositionsLight from "@/components/OriginalCompositionsLight";
 import ContactCTALight from "@/components/ContactCTALight";
 import FooterLight from "@/components/FooterLight";
+import WorksVimeoBinder from "@/components/WorksVimeoBinder";
 
 export default function Home() {
     return (
@@ -27,6 +29,9 @@ export default function Home() {
                 <ClientsStripLight />
             </section>
 
+            {/* Selected work (portfolio) */}
+            <SelectedWorkLight />
+
             {/* Specialist services (cards) */}
             <section id="specialist">
                 <SpecialistServicesLight />
@@ -44,6 +49,7 @@ export default function Home() {
 
             {/* Moving Pictures — the component contains its own <section id="moving-pictures"> */}
             <OriginalCompositionsLight />
+            <WorksVimeoBinder />
 
             {/* Contact */}
             <section id="contact">

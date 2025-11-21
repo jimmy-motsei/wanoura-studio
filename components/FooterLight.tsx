@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CONTACT_EMAIL } from "../lib/contact";
 
 export default function FooterLight() {
@@ -10,7 +11,14 @@ export default function FooterLight() {
                         {/* LEFT: headline + description + buttons */}
                         <div className="flex-1 min-w-0">
                             <a href="/" className="inline-flex" aria-label="Wanoura — Home">
-                                <img src="/brand/wanoura-logo-neutral.png" alt="Wanoura" className="h-[40px] w-auto" height={40} />
+                                <Image
+                                    src="/brand/wanoura-logo-neutral.png"
+                                    alt="Wanoura"
+                                    width={160}
+                                    height={40}
+                                    className="h-[40px] w-auto"
+                                    priority
+                                />
                             </a>
                             <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.15em] text-white/70">
                                 Wanoura — The Legacy of Sound.
