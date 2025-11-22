@@ -8,9 +8,15 @@ export default function Navbar() {
     return (
         <header className="sticky top-0 z-40 border-b border-neutral-200/70 bg-white/85 backdrop-blur">
             <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+                
                 {/* Left: Brand */}
                 <Link href="/" className="flex items-center gap-2">
-                    <Logo className="h-6" />
+                    <Logo
+                        variant="dark"
+                        width={220}         // Desktop width
+                        height={48}         // Desktop height
+                        className="w-auto sm:block"
+                    />
                 </Link>
 
                 {/* Center / Right: Nav links */}
@@ -36,7 +42,7 @@ export default function Navbar() {
                     </a>
                 </div>
 
-                {/* Mobile placeholder (kept simple for now) */}
+                {/* Mobile hamburger (placeholder for now) */}
                 <button
                     type="button"
                     className="inline-flex items-center justify-center rounded-md border border-neutral-200 p-2 text-neutral-700 md:hidden"

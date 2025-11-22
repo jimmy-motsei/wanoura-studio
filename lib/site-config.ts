@@ -6,16 +6,8 @@ export const navLinks = [
 ] as const;
 
 export const clients = [
-    {
-        name: "Nike",
-        src: "/logos/nike.png",
-        className: "h-14 md:h-16",
-    },
-    {
-        name: "Jägermeister",
-        src: "/logos/jagermeister.png",
-        className: "h-14 md:h-16",
-    },
+    { name: "Nike", src: "/logos/nike.png", className: "h-14 md:h-16" },
+    { name: "Jägermeister", src: "/logos/jagermeister.png", className: "h-14 md:h-16" },
     {
         name: "Kreative Kornerr",
         src: "/logos/Kreative-Kornerr.jpg",
@@ -24,7 +16,7 @@ export const clients = [
     {
         name: "Studio Banana",
         src: "/logos/studio-banana.png",
-        className: "h-13 md:h-17",
+        className: "h-12 md:h-14",
     },
     {
         name: "Zee Entertainment",

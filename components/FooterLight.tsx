@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Logo from "@/components/Logo";
 import { CONTACT_EMAIL } from "../lib/contact";
 
 export default function FooterLight() {
@@ -11,21 +11,20 @@ export default function FooterLight() {
                         {/* LEFT: headline + description + buttons */}
                         <div className="flex-1 min-w-0">
                             <a href="/" className="inline-flex" aria-label="wanoura — Home">
-                                <Image
-                                    src="/brand/wanoura_logo_black_transparent.png"
-                                    alt="wanoura"
-                                    width={160}
-                                    height={40}
-                                    className="h-[40px] w-auto invert"
-                                    priority
+                                <Logo
+                                    variant="light"
+                                    width={240}   // tweak if you want it a bit larger/smaller
+                                    height={56}
+                                    className="w-auto"
                                 />
                             </a>
+
                             <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.15em] text-white/70">
                                 wanoura — The Legacy of Sound.
                             </p>
 
                             <p className="mt-3 text-[0.9rem] leading-relaxed text-white/85 max-w-xl">
-                                We build sonic worlds where emotion and precision coexist. From
+                                We build sonic worlds where emotion and precision co-exist. From
                                 score to mix, from texture to voice, we shape sound that moves
                                 people and endures.
                             </p>

@@ -1,20 +1,24 @@
 import Image from "next/image";
 
 type Props = {
+  variant?: "dark" | "light"; // NEW
   className?: string;
 };
 
-export default function Logo({ className }: Props) {
-  // Renders the brand mark at ~40px height, preserving aspect ratio
-  // Asset path provided: public/brand/Wanoura_Logo_Black_Transparent.png
-  const classes = `${className ? className + " " : ""}h-[40px] w-auto`;
+export default function Logo({ variant = "dark", className }: Props) {
+  // Map variants to correct file paths
+  const src =
+    variant === "light"
+      ? "/brand/wanoura-logo-white-transparent.png"
+      : "/brand/wanoura-logo-black-transparent.png";
+
   return (
     <Image
-      src="/brand/wanoura_logo_black_transparent.png"
+      src={src}
       alt="wanoura"
-      width={160}
-      height={40}
-      className={classes}
+      width={200}          // you can tweak this
+      height={40}          // controls proportional scaling
+      className={className ?? ""}
       priority
     />
   );
