@@ -18,6 +18,7 @@ export default function RootLayout({
                 {/* Google Fonts: preconnects */}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+                {/* No favicon exported: all favicon assets removed intentionally */}
                 {/* Variable fonts: Montserrat + Open Sans */}
                 <link
                     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
