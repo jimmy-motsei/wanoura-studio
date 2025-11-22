@@ -9,7 +9,7 @@ export default function About() {
                 </h2>
 
                 <p className="text-neutral-400 text-sm md:text-base leading-relaxed mb-4">
-                    Wanoura is a creative studio crafting sonic identities for brands,
+                    wanoura is a creative studio crafting sonic identities for brands,
                     creators, and storytellers. We work where sound meets emotion —
                     designing experiences that move people and endure.
                 </p>

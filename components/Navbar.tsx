@@ -2,13 +2,7 @@
 
 import Link from "next/link";
 import Logo from "@/components/Logo";
-
-const navItems = [
-    { label: "Work", href: "#selected-work" },
-    { label: "Services", href: "#services" },
-    { label: "Clients", href: "#client-logos" },
-    { label: "Contact", href: "#contact" },
-];
+import { navLinks } from "@/lib/site-config";
 
 export default function Navbar() {
     return (
@@ -21,7 +15,7 @@ export default function Navbar() {
 
                 {/* Center / Right: Nav links */}
                 <nav className="hidden items-center gap-6 md:flex">
-                    {navItems.map((item) => (
+                    {navLinks.map((item) => (
                         <a
                             key={item.href}
                             href={item.href}

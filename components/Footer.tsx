@@ -21,7 +21,7 @@ export default function Footer() {
                         Studio
                     </h4>
                     <ul className="space-y-2 text-neutral-500 text-xs leading-relaxed">
-                        <li>About Wanoura</li>
+                        <li>About wanoura</li>
                         <li>Approach & Process</li>
                         <li>Culture & Values</li>
                     </ul>
@@ -53,13 +53,13 @@ export default function Footer() {
 
             <div className="max-w-6xl mx-auto mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-neutral-900/50 pt-8">
                 <div className="flex items-center gap-2 text-xs text-neutral-500">
-          <span className="px-2 py-1 rounded-md bg-neutral-800/50 text-neutral-300 border border-neutral-700/50">
-            Wanoura / Sound Studio
-          </span>
+                    <span className="px-2 py-1 rounded-md bg-neutral-800/50 text-neutral-300 border border-neutral-700/50">
+                        wanoura / Sound Studio
+                    </span>
                 </div>
 
                 <div className="text-[11px] text-neutral-600">
-                    © {year} Wanoura Sound Studio. All rights reserved.
+                    © {year} wanoura Sound Studio. All rights reserved.
                 </div>
             </div>
         </footer>

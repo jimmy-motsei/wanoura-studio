@@ -59,7 +59,7 @@ export default function ServicesLayoutLight() {
                         </h3>
                         <p className="text-slate-600">
                             Editorial polish, beds, ID tones, and delivery templates so your team can
-                            produce at volume while keeping the Wanoura loudness + warmth.
+                            produce at volume while keeping the wanoura loudness + warmth.
                         </p>
                     </div>
                 </div>

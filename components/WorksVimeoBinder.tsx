@@ -14,17 +14,25 @@ const WORKS_BY_SLUG: Record<string, { title: string; vimeoId: string }> = {
   "umfana-ka-ma": { title: "Umfana ka Ma", vimeoId: "1132873566" },
 };
 
-export default function WorksVimeoBinder() {
+type WorkItem = { title: string; vimeoId: string };
+
+interface WorksVimeoBinderProps {
+  containerId?: string;
+}
+
+export default function WorksVimeoBinder({ containerId = "moving-pictures" }: WorksVimeoBinderProps) {
   const [open, setOpen] = React.useState(false);
-  const [active, setActive] = React.useState<{ title: string; vimeoId: string } | null>(null);
+  const [active, setActive] = React.useState<WorkItem | null>(null);
 
   React.useEffect(() => {
-    const root = document.getElementById("moving-pictures");
+    const root = document.getElementById(containerId);
     if (!root) return undefined;
 
-    const resolve = (target: HTMLElement) => {
+    const resolveWork = (target: HTMLElement): WorkItem | null => {
       const card = target.closest<HTMLElement>("[data-work]");
-      if (card?.dataset.work && WORKS_BY_SLUG[card.dataset.work]) return WORKS_BY_SLUG[card.dataset.work];
+      if (card?.dataset.work && WORKS_BY_SLUG[card.dataset.work]) {
+        return WORKS_BY_SLUG[card.dataset.work];
+      }
 
       const idxStr = target.closest<HTMLElement>("[data-card-index]")?.dataset.cardIndex;
       const idx = idxStr ? Number(idxStr) : NaN;
@@ -35,45 +43,53 @@ export default function WorksVimeoBinder() {
       return null;
     };
 
-    const onClick = (e: MouseEvent) => {
-      if (!(e.target instanceof HTMLElement)) return;
-      if (!root.contains(e.target)) return;
-      const work = resolve(e.target);
-      if (!work) return;
+    const activateWork = (e: Event, work: WorkItem) => {
       e.preventDefault();
       e.stopPropagation();
       setActive(work);
       setOpen(true);
     };
 
-    const onKey = (e: KeyboardEvent) => {
+    const handleClick = (e: MouseEvent) => {
+      if (!(e.target instanceof HTMLElement)) return;
+      if (!root.contains(e.target)) return;
+
+      const work = resolveWork(e.target);
+      if (work) {
+        activateWork(e, work);
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (!(e.target instanceof HTMLElement)) return;
       if (!root.contains(e.target)) return;
       if (e.key !== "Enter" && e.key !== " ") return;
-      const work = resolve(e.target);
-      if (!work) return;
-      e.preventDefault();
-      e.stopPropagation();
-      setActive(work);
-      setOpen(true);
+
+      const work = resolveWork(e.target);
+      if (work) {
+        activateWork(e, work);
+      }
     };
 
-    // Safety: make wrappers keyboard-activatable when not a button
+    // Accessibility: Ensure interactive elements have appropriate roles/tabindex
     root.querySelectorAll<HTMLElement>("[data-work]").forEach((el) => {
-      if (!el.matches("a,button,[role='button']") && !el.querySelector("a,button,[role='button']")) {
-        el.tabIndex ||= 0;
-        el.setAttribute("role", el.getAttribute("role") || "button");
+      const isInteractive = el.matches("a,button,[role='button']") || el.querySelector("a,button,[role='button']");
+      if (!isInteractive) {
+        el.tabIndex = el.tabIndex === -1 ? 0 : el.tabIndex;
+        if (!el.getAttribute("role")) {
+          el.setAttribute("role", "button");
+        }
       }
     });
 
-    root.addEventListener("click", onClick, true);
-    root.addEventListener("keydown", onKey, true);
+    root.addEventListener("click", handleClick, true);
+    root.addEventListener("keydown", handleKeyDown, true);
 
     return () => {
-      root.removeEventListener("click", onClick, true);
-      root.removeEventListener("keydown", onKey, true);
+      root.removeEventListener("click", handleClick, true);
+      root.removeEventListener("keydown", handleKeyDown, true);
     };
-  }, []);
+  }, [containerId]);
 
   return (
     <VideoLightbox

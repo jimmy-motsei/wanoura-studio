@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { CONTACT_EMAIL } from "../lib/contact";
+import { useFormStatus } from "@/lib/hooks/useFormStatus";
 
 type FormState = {
     name: string;
@@ -9,8 +10,6 @@ type FormState = {
     company: string;
     message: string;
 };
-
-type FormStatus = "idle" | "success" | "error";
 
 const initialForm: FormState = {
     name: "",
@@ -21,15 +20,16 @@ const initialForm: FormState = {
 
 export default function ContactCTALight() {
     const [form, setForm] = React.useState<FormState>(initialForm);
-    const [status, setStatus] = React.useState<FormStatus>("idle");
-    const [error, setError] = React.useState<string | null>(null);
+    const { status, setStatus, error, setError } = useFormStatus();
 
     const updateField = (field: keyof FormState) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setForm((prev) => ({ ...prev, [field]: event.target.value }));
     };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        setStatus("submitting");
+        setError(null);
 
         const trimmed = {
             name: form.name.trim(),
@@ -44,21 +44,30 @@ export default function ContactCTALight() {
             return;
         }
 
-        const subject = `Project inquiry from ${trimmed.name}`;
-        const bodyLines = [
-            `Name: ${trimmed.name}`,
-            `Email: ${trimmed.email}`,
-            trimmed.company ? `Company / Studio: ${trimmed.company}` : "Company / Studio: (not provided)",
-            "",
-            "Project details:",
-            trimmed.message,
-        ];
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(trimmed),
+            });
 
-        const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+            if (!res.ok) throw new Error("Failed to submit");
 
-        setStatus("success");
-        setError(null);
-        window.location.href = mailtoHref;
+            setStatus("success");
+            setForm(initialForm);
+
+            // Optional: Google Analytics event
+            // @ts-ignore
+            if (typeof window !== "undefined" && window.gtag) {
+                // @ts-ignore
+                window.gtag("event", "contact_submit", { method: "site_form" });
+            }
+
+        } catch (err) {
+            console.error(err);
+            setError("Something went wrong. Please try again or email us directly.");
+            setStatus("error");
+        }
     };
 
     return (
@@ -89,8 +98,8 @@ export default function ContactCTALight() {
                             required
                             value={form.name}
                             onChange={updateField("name")}
-                            aria-invalid={status === "error" && !form.name.trim()}
-                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900"
+                            disabled={status === "submitting"}
+                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900 disabled:opacity-50"
                             placeholder="Your full name"
                         />
                     </div>
@@ -107,8 +116,8 @@ export default function ContactCTALight() {
                             required
                             value={form.email}
                             onChange={updateField("email")}
-                            aria-invalid={status === "error" && !form.email.trim()}
-                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900"
+                            disabled={status === "submitting"}
+                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900 disabled:opacity-50"
                             placeholder="you@example.com"
                         />
                     </div>
@@ -124,7 +133,8 @@ export default function ContactCTALight() {
                             type="text"
                             value={form.company}
                             onChange={updateField("company")}
-                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900"
+                            disabled={status === "submitting"}
+                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900 disabled:opacity-50"
                             placeholder="Production, brand, agency…"
                         />
                     </div>
@@ -140,17 +150,18 @@ export default function ContactCTALight() {
                             required
                             value={form.message}
                             onChange={updateField("message")}
-                            aria-invalid={status === "error" && !form.message.trim()}
-                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900"
+                            disabled={status === "submitting"}
+                            className="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-neutral-900 disabled:opacity-50"
                             placeholder="What are we scoring? Deadlines, references, deliverables…"
                         />
                     </div>
                     <div className="lg:col-span-2 flex flex-wrap items-center gap-4">
                         <button
                             type="submit"
-                            className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-700"
+                            disabled={status === "submitting"}
+                            className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-700 disabled:bg-neutral-400"
                         >
-                            Send request
+                            {status === "submitting" ? "Sending..." : "Send request"}
                         </button>
                         <p className="text-sm text-neutral-400">
                             Or email us directly at <a href={`mailto:${CONTACT_EMAIL}`} className="text-neutral-900 underline underline-offset-2 hover:text-neutral-500">{CONTACT_EMAIL}</a>
@@ -159,12 +170,12 @@ export default function ContactCTALight() {
 
                     <div className="lg:col-span-2">
                         {status === "success" && (
-                            <p className="text-sm text-green-700" role="status">
-                                Opening your email client with the project details — send the email to complete your request.
+                            <p className="mt-3 text-sm text-emerald-500">
+                                Thanks for reaching out — we’ll get back to you soon.
                             </p>
                         )}
                         {status === "error" && error && (
-                            <p className="text-sm text-red-600" role="alert">
+                            <p className="mt-3 text-sm text-red-500">
                                 {error}
                             </p>
                         )}

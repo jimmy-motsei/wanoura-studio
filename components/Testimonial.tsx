@@ -12,7 +12,7 @@ export default function Testimonial() {
                 className="max-w-3xl mx-auto"
             >
                 <p className="text-white text-base md:text-lg leading-relaxed font-medium mb-6">
-                    “The Wanoura team captured the essence of our brand through sound —
+                    “The wanoura team captured the essence of our brand through sound —
                     creating an identity that feels alive, human, and timeless.”
                 </p>
 

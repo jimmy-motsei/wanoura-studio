@@ -10,18 +10,18 @@ export default function FooterLight() {
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
                         {/* LEFT: headline + description + buttons */}
                         <div className="flex-1 min-w-0">
-                            <a href="/" className="inline-flex" aria-label="Wanoura — Home">
+                            <a href="/" className="inline-flex" aria-label="wanoura — Home">
                                 <Image
-                                    src="/brand/wanoura-logo-neutral.png"
-                                    alt="Wanoura"
+                                    src="/brand/wanoura_logo_black_transparent.png"
+                                    alt="wanoura"
                                     width={160}
                                     height={40}
-                                    className="h-[40px] w-auto"
+                                    className="h-[40px] w-auto invert"
                                     priority
                                 />
                             </a>
                             <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.15em] text-white/70">
-                                Wanoura — The Legacy of Sound.
+                                wanoura — The Legacy of Sound.
                             </p>
 
                             <p className="mt-3 text-[0.9rem] leading-relaxed text-white/85 max-w-xl">

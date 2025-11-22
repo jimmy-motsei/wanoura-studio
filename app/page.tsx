@@ -30,7 +30,9 @@ export default function Home() {
             </section>
 
             {/* Selected work (portfolio) */}
-            <SelectedWorkLight />
+            <section id="selected-work" className="scroll-mt-24">
+                <SelectedWorkLight />
+            </section>
 
             {/* Specialist services (cards) */}
             <section id="specialist">

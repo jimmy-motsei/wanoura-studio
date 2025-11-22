@@ -7,7 +7,7 @@ export default function TestimonialLight() {
                 {/* Quote */}
                 <blockquote className="text-[1.1rem] leading-[1.6] font-medium tracking-[-0.01em] text-neutral-900 sm:text-[1.25rem]">
                     <p>
-                        “The Wanoura team captured the essence of our brand through sound — building something that
+                        “The wanoura team captured the essence of our brand through sound — building something that
                         feels alive, human, and unmistakably ours.
                     </p>
                     <p>

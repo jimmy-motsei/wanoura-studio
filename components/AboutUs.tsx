@@ -51,7 +51,7 @@ export default function AboutUs() {
               Over the past 4–5 years, Onkgopotse has collaborated with globally recognized brands including Nike and Jägermeister, as well as innovative world-class artists such as Uncle Waffles. His expertise lies in translating creative visions into sound, whether that’s composing bespoke music for advertising, designing sound for branded media, or producing high-end audio experiences like Dolby Atmos mixes.
             </p>
             <p className="mt-4">
-              Driven by a commitment to innovation and excellence, Onkgopotse now leads Wanoura, a creative agency where music, sound design, and storytelling converge. He combines technical mastery with a deep understanding of brand and narrative, ensuring every project not only resonates but leaves a lasting impression.
+              Driven by a commitment to innovation and excellence, Onkgopotse now leads wanoura, a creative agency where music, sound design, and storytelling converge. He combines technical mastery with a deep understanding of brand and narrative, ensuring every project not only resonates but leaves a lasting impression.
             </p>
           </div>
 

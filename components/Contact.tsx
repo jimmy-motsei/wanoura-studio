@@ -48,7 +48,7 @@ export default function Contact() {
                             <p className="uppercase text-[11px] tracking-wide text-neutral-400 mb-3">
                                 Studio
                             </p>
-                            <p className="text-neutral-100 font-medium">Wanoura Sound Studio</p>
+                            <p className="text-neutral-100 font-medium">wanoura Sound Studio</p>
                             <p className="text-neutral-400 leading-relaxed">
                                 Johannesburg, South Africa
                                 <br />
@@ -69,7 +69,7 @@ export default function Contact() {
                         {/* Capabilities / availability / socials */}
                         <div>
                             <p className="uppercase text-[11px] tracking-wide text-neutral-400 mb-3">
-                                Working With Wanoura
+                                Working With wanoura
                             </p>
                             <ul className="text-neutral-400 leading-relaxed space-y-2">
                                 <li>Original music & scoring</li>
