@@ -7,7 +7,7 @@ export const navLinks = [
 
 export const clients = [
     // nice, wide, already white
-    { name: "Nike", src: "/logos/nike.png", width: 160, height: 60 },
+    { name: "Nike", src: "/logos/nike.png", width: 60, height: 60 },
 
     // circular badge, can be a bit smaller
     { name: "Jägermeister", src: "/logos/jagermeister.png", width: 120, height: 120 },
@@ -21,7 +21,7 @@ export const clients = [
     },
 
     // long but small logo → bump width
-    { name: "Studio Bananaaa", src: "/logos/Studio-Bananaaa-neutral.png", width: 190, height: 70 },
+    { name: "Studio Banana", src: "/logos/Studio-Bananaaa-neutral.png", width: 190, height: 70 },
 
     // tall “Z” → a bit narrower
     { name: "Zee Entertainment", src: "/logos/Zee-entertainment-neutral.png", width: 120, height: 120 },
