@@ -20,19 +20,19 @@ export default function ClientsStripLight() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.3 }}
-                    className="grid grid-cols-5 items-center gap-6 md:gap-10 w-full"
+                    className="flex w-full flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10 md:justify-between"
                 >
                     {clients.map((client) => (
                         <div
                             key={client.name}
-                            className="flex items-center justify-center min-h-[5rem]"
+                            className="flex min-h-[5rem] basis-1/2 items-center justify-center sm:basis-1/3 md:basis-auto"
                         >
                             <Image
                                 src={client.src}
                                 alt={client.name}
-                                width={client.width}
-                                height={client.height}
-                                className="h-10 w-auto md:h-12 object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
+                                width={200}
+                                height={60}
+                                className={`h-14 w-auto object-contain md:h-16 ${client.className ?? ""}`}
                                 sizes="(min-width: 1024px) 200px, (min-width: 768px) 160px, 140px"
                             />
                         </div>

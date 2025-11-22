@@ -6,23 +6,29 @@ export const navLinks = [
 ] as const;
 
 export const clients = [
-    // nice, wide, already white
-    { name: "Nike", src: "/logos/nike.png", width: 60, height: 60 },
-
-    // circular badge, can be a bit smaller
-    { name: "Jägermeister", src: "/logos/jagermeister.png", width: 120, height: 120 },
-
-    // dark-on-dark → force invert/brightness + give it more width
+    {
+        name: "Nike",
+        src: "/logos/nike.png",
+        className: "h-14 md:h-16",
+    },
+    {
+        name: "Jägermeister",
+        src: "/logos/jagermeister.png",
+        className: "h-14 md:h-16",
+    },
     {
         name: "Kreative Kornerr",
-        src: "/logos/Kreative-Kornerr-neutral.png",
-        width: 220,
-        height: 100,
+        src: "/logos/Kreative-Kornerr.jpg",
+        className: "h-10 md:h-12 max-w-[180px]",
     },
-
-    // long but small logo → bump width
-    { name: "Studio Banana", src: "/logos/Studio-Bananaaa-neutral.png", width: 190, height: 70 },
-
-    // tall “Z” → a bit narrower
-    { name: "Zee Entertainment", src: "/logos/Zee-entertainment-neutral.png", width: 120, height: 120 },
-] as const;
+    {
+        name: "Studio Banana",
+        src: "/logos/studio-banana.png",
+        className: "h-13 md:h-17",
+    },
+    {
+        name: "Zee Entertainment",
+        src: "/logos/zee-entertainment.png",
+        className: "h-12 md:h-14 max-w-[120px]",
+    },
+];
