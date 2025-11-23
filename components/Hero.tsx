@@ -1,38 +1,38 @@
-"use client";
-import { motion } from "framer-motion";
-
-export default function Hero() {
+export default function HeroLight() {
     return (
-        <section className="hero hero--dark relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-neutral-900 to-neutral-950">
-            {/* soft radial glow */}
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.08)_0%,rgba(0,0,0,0)_70%)] opacity-[.08]" />
+        <section className="relative bg-white hero min-h-[70vh]" id="hero">
+            <div className="mx-auto max-w-5xl px-6 py-24">
+                
+                {/* HEADLINE BLOCK — vertically centered */}
+                <div className="flex flex-col justify-center h-full">
+                    <div>
+                        {/* Headline */}
+                        <h1 className="display text-[2rem] leading-[1.15] tracking-[-0.035em] font-semibold text-neutral-900 md:text-[2.25rem] md:leading-[1.15]">
+                            wanoura
+                        </h1>
 
-            <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="relative container mx-auto text-center"
-            >
-                <h1 className="text-4xl md:text-6xl font-semibold leading-tight tracking-tight text-white mb-6">
-                    The Legacy of Sound
-                </h1>
+                        {/* Strapline */}
+                        <h2 className="text-xl md:text-2xl font-medium text-neutral-700 mt-2">
+                            The Legacy of Sound
+                        </h2>
+                    </div>
 
-                <p className="text-lg md:text-xl leading-relaxed text-neutral-300 mb-10">
-                    Crafting sonic identities for brands, creators, and storytellers. We
-                    work where sound meets emotion — designing experiences that resonate,
-                    inspire, and endure.
-                </p>
+                    {/* PARAGRAPH + CTA (now pushed further down) */}
+                    <p className="lead mt-10 max-w-prose text-sm leading-relaxed text-neutral-600">
+                        wanoura is a creative studio crafting sonic identities for brands, creators, and
+                        storytellers. We work where sound meets emotion — designing experiences that
+                        move people and endure.
+                    </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <button className="btn-primary">
-                        Explore Our Work
-                        <span className="icon">→</span>
-                    </button>
-                    <button className="btn-ghost text-white border border-white/30">
-                        Get in Touch
-                    </button>
+                    <a
+                        href="mailto:hello@dreamwanoura.com?subject=Project%20Brief"
+                        className="inline-flex mt-6 rounded-full bg-black px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-900"
+                    >
+                        Upload your project brief
+                    </a>
                 </div>
-            </motion.div>
+
+            </div>
         </section>
     );
 }

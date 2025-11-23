@@ -1,24 +1,22 @@
+// components/Logo.tsx
 import Image from "next/image";
 
 type Props = {
-  variant?: "dark" | "light"; // NEW
   className?: string;
 };
 
-export default function Logo({ variant = "dark", className }: Props) {
-  // Map variants to correct file paths
-  const src =
-    variant === "light"
-      ? "/brand/wanoura-logo-white-transparent.png"
-      : "/brand/wanoura-logo-black-transparent.png";
+export default function Logo({ className }: Props) {
+  // Default navbar sizing: 28px on mobile, 32px on desktop
+  const base = "h-[28px] sm:h-[32px] w-auto";
+  const classes = className ? `${base} ${className}` : base;
 
   return (
     <Image
-      src={src}
-      alt="wanoura"
-      width={200}          // you can tweak this
-      height={40}          // controls proportional scaling
-      className={className ?? ""}
+      src="/brand/wanoura-logo-black-290-100-transparent.png"
+      alt="Wanoura Logo"
+      width={290}
+      height={100}
+      className={classes}
       priority
     />
   );

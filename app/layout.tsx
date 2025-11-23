@@ -1,34 +1,44 @@
+import { IBM_Plex_Mono } from "next/font/google";
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-ibm-plex-mono",
+});
+
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Inter, Inter_Tight } from "next/font/google";
+
+// Load fonts using next/font/google (faster, optimized, avoids flashes)
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  variable: "--font-inter-tight",
+});
 
 export const metadata: Metadata = {
-    title: "wanoura — The Legacy of Sound",
-    description: "Sonic identity, design, direction & delivery.",
+  title: "wanoura — The Legacy of Sound",
+  description: "Sonic identity, design, direction & delivery.",
 };
 
 export default function RootLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
-        <html lang="en" className="bg-white">
-            <head>
-                {/* Google Fonts: preconnects */}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-                {/* No favicon exported: all favicon assets removed intentionally */}
-                {/* Variable fonts: Montserrat + Open Sans */}
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-                    rel="stylesheet"
-                />
-            </head>
-            <body className="min-h-screen bg-white antialiased">
-                <Navbar />
-                {children}
-            </body>
-        </html>
-    );
+  return (
+    <html lang="en" className={`${ibmPlexMono.variable} bg-white`}>
+
+      <body className="min-h-screen bg-white antialiased font-sans">
+        <Navbar />
+        {children}
+      </body>
+    </html>
+  );
 }

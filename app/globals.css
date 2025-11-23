@@ -56,12 +56,11 @@ html {
     text-rendering: optimizeLegibility;
 }
 
-body,
-p {
-    font-size: var(--body-size);     /* 16px */
-    line-height: var(--body-leading);/* 1.7rem */
-    font-weight: 400;
+body {
+  @apply font-body;
 }
+
+
 
 * {
     font-synthesis: none;

@@ -3,16 +3,16 @@ export default {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./lib/**/*.{js,ts,jsx,tsx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        heading: ["Cambon", "serif"],
-        body: ["Inter", "sans-serif"],
-        musical: ["Manrope", "sans-serif"],
-      },
+  extend: {
+    fontFamily: {
+      mono: ["var(--font-ibm-plex-mono)", "monospace"],
+      body: ["var(--font-ibm-plex-mono)", "monospace"],
     },
   },
+}
+
   plugins: [],
 };
