@@ -1,0 +1,84 @@
+.
+├── README.md
+├── REVIEW.md
+├── app
+│   ├── api
+│   │   └── contact
+│   │       └── route.ts
+│   ├── globals.css
+│   ├── icon.ico
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── tailwind.config.js
+├── components
+│   ├── About.tsx
+│   ├── AboutUs.tsx
+│   ├── Capabilities.tsx
+│   ├── Clients.tsx
+│   ├── ClientsBanner.tsx
+│   ├── ClientsStripLight.tsx
+│   ├── Contact.tsx
+│   ├── ContactCTALight.tsx
+│   ├── Footer.tsx
+│   ├── FooterLight.tsx
+│   ├── Hero.tsx
+│   ├── HeroLight.tsx
+│   ├── Logo.tsx
+│   ├── Navbar.tsx
+│   ├── OriginalCompositionsLight.tsx
+│   ├── SectionCard.tsx
+│   ├── SelectedWorkLight.tsx
+│   ├── Services.tsx
+│   ├── ServicesLayoutLight.tsx
+│   ├── SpecialistServicesLight.tsx
+│   ├── Testimonial.tsx
+│   ├── TestimonialLight.tsx
+│   ├── VideoLightbox.tsx
+│   ├── Work.tsx
+│   ├── WorkCard.module.css
+│   ├── WorkCard.tsx
+│   └── WorksVimeoBinder.tsx
+├── devIncognito.js
+├── eslint.config.mjs
+├── lib
+│   ├── contact.ts
+│   ├── hooks
+│   │   └── useFormStatus.ts
+│   ├── motion.ts
+│   └── site-config.ts
+├── next-env.d.ts
+├── next.config.mjs
+├── next.config.ts.bak
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── brand
+│   │   ├── founder.png
+│   │   ├── wanoura-logo-black-290-100-transparent.png
+│   │   ├── wanoura-logo-black-transparent-500:500.png
+│   │   ├── wanoura-logo-black-transparent.png
+│   │   ├── wanoura-logo-white-transparent.png
+│   │   ├── wanoura_favicon.ico
+│   │   └── wanoura_favicon_white.ico
+│   ├── favicon.ico
+│   ├── images
+│   │   └── sound-studio-portrait.jpg
+│   ├── logos
+│   │   ├── Kreative-Kornerr.jpg
+│   │   ├── jagermeister.png
+│   │   ├── nike.png
+│   │   ├── studio-banana.png
+│   │   └── zee-entertainment.png
+│   ├── next.svg
+│   └── original-compositions-custom-scores
+│       └── posters
+│           ├── jagermeister-my-waffles-tease.svg
+│           ├── studio-bananaaa-love-letters-to-my-mom.svg
+│           ├── studio-bananaaa-mamas-boy.svg
+│           └── studio-bananaaa-umfana-ka-ma.svg
+├── scripts
+├── task.md
+└── tsconfig.json
+
+14 directories, 68 files
