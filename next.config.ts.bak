@@ -1,8 +1,0 @@
-// backup of previous TS config; Next.js uses JS/MJS config.
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
