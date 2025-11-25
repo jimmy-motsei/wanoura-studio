@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "@/components/Logo";
+import SiteLogo from "@/components/SiteLogo";
 import { navLinks } from "@/lib/site-config";
 
 export default function Navbar() {
@@ -11,23 +11,32 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left: Brand */}
         <Link href="/" className="flex items-center gap-2" aria-label="wanoura — Home">
-          <Logo />
+            <SiteLogo
+                variant="horizontal"
+                width={160}
+                height={48}
+                className="transition-opacity duration-150 hover:opacity-80"
+            />
         </Link>
 
         {/* Center / Right: Nav links */}
-        <nav className="hidden items-center gap-6 md:flex">
-          {navLinks.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm text-neutral-600 transition-colors hover:text-black"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+          <nav
+              className="hidden items-center gap-6 md:flex"
+              aria-label="Main navigation"
+          >
+              {navLinks.map((item) => (
+                  <a
+                      key={item.href}
+                      href={item.href}
+                      className="text-sm text-neutral-600 transition-colors hover:text-black"
+                  >
+                      {item.label}
+                  </a>
+              ))}
+          </nav>
 
-        {/* CTA */}
+
+          {/* CTA */}
         <div className="hidden md:block">
           <a
             href="#contact"

@@ -6,13 +6,13 @@ export default {
     "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-  extend: {
-    fontFamily: {
-      mono: ["var(--font-ibm-plex-mono)", "monospace"],
-      body: ["var(--font-ibm-plex-mono)", "monospace"],
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        heading: ["var(--font-inter-tight)", "var(--font-inter)", "sans-serif"],
+      },
     },
   },
-}
 
   plugins: [],
 };

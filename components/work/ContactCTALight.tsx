@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { CONTACT_EMAIL } from "../lib/contact";
+import { CONTACT_EMAIL } from "@/lib/contact";
 import { useFormStatus } from "@/lib/hooks/useFormStatus";
 
 type FormState = {

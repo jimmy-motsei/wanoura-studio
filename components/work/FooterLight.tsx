@@ -1,5 +1,5 @@
-import Logo from "@/components/Logo";
-import { CONTACT_EMAIL } from "../lib/contact";
+import SiteLogo from "@/components/SiteLogo";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 export default function FooterLight() {
     return (
@@ -11,10 +11,10 @@ export default function FooterLight() {
                         {/* LEFT: headline + description + buttons */}
                         <div className="flex-1 min-w-0">
                             <a href="/" className="inline-flex" aria-label="wanoura — Home">
-                                <Logo
+                                <SiteLogo
                                     variant="light"
-                                    width={240}   // tweak if you want it a bit larger/smaller
-                                    height={56}
+                                    width={140}   // tweak if you want it a bit larger/smaller
+                                    height={40}
                                     className="w-auto"
                                 />
                             </a>
