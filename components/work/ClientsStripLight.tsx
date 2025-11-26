@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/motion";
 import { clients } from "@/lib/site-config";
 
 export default function ClientsStripLight() {
@@ -10,16 +11,16 @@ export default function ClientsStripLight() {
 
     return (
         <section className="relative py-6 md:py-8">
-            <p className="text-center text-xs tracking-[0.32em] uppercase text-slate-900/70 mb-4">
+            <motion.p
+                className="text-center text-xs tracking-[0.32em] uppercase text-slate-900/70 mb-4"
+                {...fadeUp(0)}
+            >
                 WE’VE WORKED WITH HUNDREDS OF AMAZING PEOPLE
-            </p>
+            </motion.p>
 
             <div className="mx-auto max-w-6xl rounded-[1.6rem] bg-black shadow-[0_28px_70px_rgba(0,0,0,0.35)] px-6 md:px-10 min-h-[9.5rem] flex items-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.3 }}
+                    {...fadeUp(0.05)}
                     className="flex w-full flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10 md:justify-between"
                 >
                     {clients.map((client) => (

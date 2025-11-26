@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-type LogoVariant = "icon" | "wordmark" | "horizontal";
+type LogoVariant = "icon" | "wordmark" | "horizontal" | "light" | "dark";
 
 interface SiteLogoProps {
     variant?: LogoVariant;
@@ -17,12 +17,13 @@ export default function SiteLogo({
                                      height = 40,
                                      className = "",
                                  }: SiteLogoProps) {
-    const srcMap = {
+    const srcMap: Record<LogoVariant, string> = {
         icon: "/img/wanoura/wanoura_favicon.ico",
         wordmark: "/img/wanoura/wanoura-logo-black-transparent.png",
         horizontal: "/img/wanoura/wanoura-logo-black-290-100-transparent.png",
+        light: "/img/wanoura/wanoura-logo-white-transparent.png",
+        dark: "/img/wanoura/wanoura-logo-black-transparent.png",
     };
-
 
     return (
         <Image

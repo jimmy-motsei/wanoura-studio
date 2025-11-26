@@ -1,6 +1,8 @@
 "use client";
 
 import * as React from "react";
+import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/motion";
 import { CONTACT_EMAIL } from "@/lib/contact";
 import { useFormStatus } from "@/lib/hooks/useFormStatus";
 
@@ -22,9 +24,11 @@ export default function ContactCTALight() {
     const [form, setForm] = React.useState<FormState>(initialForm);
     const { status, setStatus, error, setError } = useFormStatus();
 
-    const updateField = (field: keyof FormState) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setForm((prev) => ({ ...prev, [field]: event.target.value }));
-    };
+    const updateField =
+        (field: keyof FormState) =>
+            (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+                setForm((prev) => ({ ...prev, [field]: event.target.value }));
+            };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -51,18 +55,22 @@ export default function ContactCTALight() {
                 body: JSON.stringify(trimmed),
             });
 
-            if (!res.ok) throw new Error("Failed to submit");
+            if (!res.ok) {
+                setStatus("error");
+                setError(
+                    "Something went wrong. Please try again or email us directly."
+                );
+                return;
+            }
 
             setStatus("success");
             setForm(initialForm);
 
-            // Optional: Google Analytics event
-            // @ts-ignore
-            if (typeof window !== "undefined" && window.gtag) {
-                // @ts-ignore
-                window.gtag("event", "contact_submit", { method: "site_form" });
+            if (typeof window !== "undefined" && (window as any).gtag) {
+                (window as any).gtag("event", "contact_submit", {
+                    method: "site_form",
+                });
             }
-
         } catch (err) {
             console.error(err);
             setError("Something went wrong. Please try again or email us directly.");
@@ -71,9 +79,12 @@ export default function ContactCTALight() {
     };
 
     return (
-        <section className="bg-white py-20">
-            <div className="mx-auto max-w-5xl rounded-[32px] border border-neutral-200 bg-white/70 p-10 lg:p-14 shadow-[0_24px_80px_rgba(15,23,42,0.06)]">
-                <div className="max-w-2xl">
+        <section id="contact" className="bg-white py-20">
+            <motion.div
+                {...fadeUp(0)}
+                className="mx-auto max-w-5xl rounded-[32px] border border-neutral-200 bg-white/70 p-10 lg:p-14 shadow-[0_24px_80px_rgba(15,23,42,0.06)]"
+            >
+                <motion.div className="max-w-2xl" {...fadeUp(0.05)}>
                     <p className="text-xs font-medium uppercase tracking-[0.4em] text-neutral-400">
                         Contact us
                     </p>
@@ -81,13 +92,22 @@ export default function ContactCTALight() {
                         Let’s work together
                     </h2>
                     <p className="mt-3 text-sm text-neutral-500 leading-relaxed">
-                        Tell us about your project — we’ll come back with options, timelines, and a sonic POV.
+                        Tell us about your project — we’ll come back with options, timelines,
+                        and a sonic POV.
                     </p>
-                </div>
+                </motion.div>
 
-                <form className="mt-10 grid gap-6 lg:grid-cols-2" onSubmit={handleSubmit} noValidate>
+                <motion.form
+                    className="mt-10 grid gap-6 lg:grid-cols-2"
+                    onSubmit={handleSubmit}
+                    noValidate
+                    {...fadeUp(0.1)}
+                >
                     <div className="lg:col-span-2">
-                        <label htmlFor="contact-name" className="block text-sm font-medium text-neutral-700">
+                        <label
+                            htmlFor="contact-name"
+                            className="block text-sm font-medium text-neutral-700"
+                        >
                             Name
                         </label>
                         <input
@@ -105,7 +125,10 @@ export default function ContactCTALight() {
                     </div>
 
                     <div>
-                        <label htmlFor="contact-email" className="block text-sm font-medium text-neutral-700">
+                        <label
+                            htmlFor="contact-email"
+                            className="block text-sm font-medium text-neutral-700"
+                        >
                             Email
                         </label>
                         <input
@@ -123,7 +146,10 @@ export default function ContactCTALight() {
                     </div>
 
                     <div>
-                        <label htmlFor="contact-company" className="block text-sm font-medium text-neutral-700">
+                        <label
+                            htmlFor="contact-company"
+                            className="block text-sm font-medium text-neutral-700"
+                        >
                             Company / Studio
                         </label>
                         <input
@@ -138,8 +164,12 @@ export default function ContactCTALight() {
                             placeholder="Production, brand, agency…"
                         />
                     </div>
+
                     <div className="lg:col-span-2">
-                        <label htmlFor="contact-message" className="block text-sm font-medium text-neutral-700">
+                        <label
+                            htmlFor="contact-message"
+                            className="block text-sm font-medium text-neutral-700"
+                        >
                             Project details
                         </label>
                         <textarea
@@ -155,6 +185,7 @@ export default function ContactCTALight() {
                             placeholder="What are we scoring? Deadlines, references, deliverables…"
                         />
                     </div>
+
                     <div className="lg:col-span-2 flex flex-wrap items-center gap-4">
                         <button
                             type="submit"
@@ -164,7 +195,13 @@ export default function ContactCTALight() {
                             {status === "submitting" ? "Sending..." : "Send request"}
                         </button>
                         <p className="text-sm text-neutral-400">
-                            Or email us directly at <a href={`mailto:${CONTACT_EMAIL}`} className="text-neutral-900 underline underline-offset-2 hover:text-neutral-500">{CONTACT_EMAIL}</a>
+                            Or email us directly at{" "}
+                            <a
+                                href={`mailto:${CONTACT_EMAIL}`}
+                                className="text-neutral-900 underline underline-offset-2 hover:text-neutral-500"
+                            >
+                                {CONTACT_EMAIL}
+                            </a>
                         </p>
                     </div>
 
@@ -175,13 +212,11 @@ export default function ContactCTALight() {
                             </p>
                         )}
                         {status === "error" && error && (
-                            <p className="mt-3 text-sm text-red-500">
-                                {error}
-                            </p>
+                            <p className="mt-3 text-sm text-red-500">{error}</p>
                         )}
                     </div>
-                </form>
-            </div>
+                </motion.form>
+            </motion.div>
         </section>
     );
 }

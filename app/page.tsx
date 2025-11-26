@@ -1,4 +1,5 @@
 // app/page.tsx
+"use client";
 
 import Hero from "@/components/work/HeroLight";
 import SelectedWork from "@/components/work/SelectedWorkLight";
@@ -7,17 +8,23 @@ import Services from "@/components/work/ServicesLayoutLight";
 import Clients from "@/components/work/ClientsStripLight";
 import MovingPictures from "@/components/work/OriginalCompositionsLight";
 import Contact from "@/components/work/ContactCTALight";
+import FooterLight from "@/components/work/FooterLight";
+import WorksVimeoBinder from "@/components/work/WorksVimeoBinder";
 
 export default function Page() {
     return (
-        <main>
-            <Hero />
-            <SelectedWork />
-            <SpecialistServices />
-            <Services />
-            <Clients />
-            <MovingPictures />
-            <Contact />
-        </main>
+        <>
+            <WorksVimeoBinder containerId="moving-pictures" />
+            <main className="min-h-screen">
+                <Hero />
+                <SelectedWork />
+                <SpecialistServices />
+                <Services />
+                <Clients />
+                <MovingPictures />
+                <Contact />
+                <FooterLight />
+            </main>
+        </>
     );
 }

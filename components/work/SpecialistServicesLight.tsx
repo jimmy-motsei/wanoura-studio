@@ -39,8 +39,13 @@ const services: Service[] = [
 
 export default function SpecialistServicesLight() {
     return (
-        <section aria-labelledby="specialist-heading" className="px-6 py-16">
-            <div className="mx-auto max-w-6xl">
+        <section
+            id="specialist-services"
+            aria-labelledby="specialist-heading"
+            className="px-6 py-16"
+        >
+
+        <div className="mx-auto max-w-6xl">
                 {/* Motion-enhanced heading */}
                 <motion.h2
                     id="specialist-heading"

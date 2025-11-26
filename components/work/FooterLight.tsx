@@ -1,19 +1,27 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/motion";
 import SiteLogo from "@/components/SiteLogo";
 import { CONTACT_EMAIL } from "@/lib/contact";
 
 export default function FooterLight() {
     return (
-        <footer className="bg-neutral-900 text-white px-4 py-20 sm:py-24">
+        <footer className="bg-neutral-900 text-white px-4 py-20 sm:py-24 rounded-3xl">
             <div className="mx-auto max-w-5xl">
-                <div className="rounded-2xl bg-neutral-900/95 p-8 sm:p-10 shadow-[0_30px_80px_-10px_rgba(0,0,0,0.6)]">
-                    {/* Top row: intro + CTA + contact details */}
+                <motion.div
+                    {...fadeUp(0.18, 10)}  // slightly delayed, tiny vertical lift
+                    className="rounded-2xl bg-neutral-900/95 p-8 sm:p-10 shadow-[0_30px_80px_-10px_rgba(0,0,0,0.6)]"
+                >
+
+                {/* Top row: intro + CTA + contact details */}
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
                         {/* LEFT: headline + description + buttons */}
                         <div className="flex-1 min-w-0">
                             <a href="/" className="inline-flex" aria-label="wanoura — Home">
                                 <SiteLogo
                                     variant="light"
-                                    width={140}   // tweak if you want it a bit larger/smaller
+                                    width={140}
                                     height={40}
                                     className="w-auto"
                                 />
@@ -70,9 +78,7 @@ export default function FooterLight() {
 
                             {/* Direct contact */}
                             <div>
-                                <div className="font-semibold text-white">
-                                    Let’s talk
-                                </div>
+                                <div className="font-semibold text-white">Let’s talk</div>
                                 <div className="text-white/75">
                                     <a
                                         className="underline underline-offset-4 hover:text-white"
@@ -85,9 +91,7 @@ export default function FooterLight() {
 
                             {/* Social links */}
                             <div>
-                                <div className="font-semibold text-white">
-                                    Social
-                                </div>
+                                <div className="font-semibold text-white">Social</div>
                                 <ul className="mt-1 space-y-1 text-white/75">
                                     <li>
                                         <a
@@ -114,7 +118,7 @@ export default function FooterLight() {
                         </div>
                     </div>
 
-                    {/* Bottom fine-print / positioning */}
+                    {/* Fine print */}
                     <div className="mt-10 border-t border-white/20 pt-6 text-[0.7rem] leading-relaxed text-white/60">
                         <div>
                             Commercial, campaign &amp; product.
@@ -122,7 +126,7 @@ export default function FooterLight() {
                             Culture, community &amp; emerging talent.
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </footer>
     );

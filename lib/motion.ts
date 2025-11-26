@@ -1,21 +1,64 @@
 // lib/motion.ts
-export const easeOutExpo = [0.16, 1, 0.3, 1] as const;
+// Soft, cinematic motion tokens for the whole site
 
-export const fadeUp = (delay = 0, y = 12) => ({
-  initial: { opacity: 0, y },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, amount: 0.6 },
-  transition: { duration: 0.45, ease: easeOutExpo, delay },
-});
+export const easeOutCinematic = [0.25, 0.8, 0.3, 1] as const;
 
-export const fade = (delay = 0) => ({
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1 },
-  viewport: { once: true, amount: 0.6 },
-  transition: { duration: 0.4, ease: easeOutExpo, delay },
-});
+const baseViewport = {
+    once: true,
+    amount: 0.2, // start animating fairly early in the viewport
+} as const;
 
-// Simple prefers-reduced-motion helper
+// Respect user's prefers-reduced-motion setting
 export const isReducedMotion = () =>
-  typeof window !== "undefined" &&
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Base fade helper (no vertical movement)
+export const fade = (delay = 0) => {
+    const reduced = isReducedMotion();
+
+    if (reduced) {
+        // For reduced motion, don't animate; just render in place
+        return {
+            initial: { opacity: 1 },
+            whileInView: { opacity: 1 },
+            viewport: baseViewport,
+            transition: { duration: 0, delay: 0 },
+        };
+    }
+
+    return {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        viewport: baseViewport,
+        transition: {
+            duration: 0.9,
+            ease: easeOutCinematic,
+            delay,
+        },
+    };
+};
+
+// Fade + gentle upward lift
+export const fadeUp = (delay = 0, y = 18) => {
+    const base = fade(delay);
+    const reduced = isReducedMotion();
+
+    if (reduced) {
+        // Same as fade: no vertical motion for reduced-motion users
+        return {
+            ...base,
+            initial: { ...(base.initial as any), y: 0 },
+            whileInView: { ...(base.whileInView as any), y: 0 },
+        };
+    }
+
+    return {
+        ...base,
+        initial: { ...(base.initial as any), y },
+        whileInView: { ...(base.whileInView as any), y: 0 },
+    };
+};
+
+// Fade only (for use with scroll-based y transforms)
+export const fadeOnly = fade;

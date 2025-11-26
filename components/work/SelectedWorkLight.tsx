@@ -1,4 +1,8 @@
 // components/SelectedWorkLight.tsx
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/motion";
 
 export default function SelectedWorkLight() {
     const items = [
@@ -29,22 +33,34 @@ export default function SelectedWorkLight() {
         <section className="bg-white py-20 md:py-24" id="selected-work">
             <div className="container mx-auto max-w-6xl">
                 {/* header */}
-                <p className="eyebrow text-slate-500">Selected work</p>
-                <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 max-w-3xl">
-                    From global campaigns to cultural moments, we design sound that moves
-                    people — emotionally, physically, and culturally.
-                </h2>
-                <p className="mt-4 max-w-3xl text-slate-600">
+                <motion.p className="eyebrow text-slate-500" {...fadeUp(0)}>
+                    Selected work
+                </motion.p>
+
+                <motion.div {...fadeUp(0)}>
+                    <h2 className="text-[2rem] sm:text-[2.65rem] leading-tight tracking-[-0.02em] text-slate-900 max-w-4xl">
+                        From global campaigns to cultural moments.
+                    </h2>
+                </motion.div>
+
+                <motion.div {...fadeUp(0.08)}>
+                    <h3 className="mt-3 text-[1.55rem] sm:text-[1.9rem] font-normal leading-[1.35] tracking-[-0.01em] text-slate-700 max-w-4xl">
+                        We design sound that moves people — emotionally, physically, and culturally.
+                    </h3>
+                </motion.div>
+
+                <motion.p className="mt-4 max-w-3xl text-slate-600" {...fadeUp(0.1)}>
                     This is a snapshot of recent work. Each project blends score, identity,
                     voice, mix, and delivery — built for speed, built for story, built for
                     roll-out.
-                </p>
+                </motion.p>
 
                 {/* cards */}
                 <div className="mt-10 grid gap-6 md:grid-cols-3">
-                    {items.map((item) => (
-                        <article
+                    {items.map((item, i) => (
+                        <motion.article
                             key={item.title}
+                            {...fadeUp(0.15 + i * 0.05, 40)}
                             className="rounded-2xl bg-[#121212] border border-white/5 shadow-[0_24px_60px_rgba(0,0,0,.15)] flex flex-col gap-4 p-6 md:p-7 min-h-[280px] text-white"
                         >
                             {/* top meta */}
@@ -66,7 +82,7 @@ export default function SelectedWorkLight() {
                             <p className="text-[11px] uppercase tracking-wide text-white/50 mt-auto">
                                 {item.extra}
                             </p>
-                        </article>
+                        </motion.article>
                     ))}
                 </div>
             </div>

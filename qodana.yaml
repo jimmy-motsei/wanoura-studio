@@ -1,0 +1,61 @@
+version: "1.0"
+
+# Use the JS/TS-focused Qodana image
+linter: jetbrains/qodana-js:latest
+
+projectJDK: "17"
+
+profile:
+  # "qodana.recommended" is a good default.
+  # You can switch to "qodana.strict" later if you want more noise.
+  name: "qodana.recommended"
+
+include:
+  # Keep the analysis focused on your actual app code
+  - name: "JavaScript and TypeScript"
+  - name: "Common JavaScript issues"
+  - name: "ESLint"
+  - name: "Duplicated code"
+  - name: "Code style issues"
+
+exclude:
+  # Don't analyse build artifacts or dependencies
+  - name: "All"
+    paths:
+      - "node_modules"
+      - ".next"
+      - "dist"
+      - "out"
+      - ".turbo"
+      - "coverage"
+      - ".idea"
+
+  # Ignore archived / dark-mode components if you’re not maintaining them
+  - name: "All"
+    paths:
+      - "archive"
+      - "archive/**"
+      - "archive-dark"
+      - "archive-dark/**"
+
+  # Ignore generated API types or vendor code if you add them later
+  # - name: "All"
+  #   paths:
+  #     - "generated"
+  #     - "generated/**"
+
+plugins:
+  # ESLint & TypeScript work in tandem with Qodana
+  - id: JavaScript
+  - id: TypeScript
+
+bootstrap: pnpm install --frozen-lockfile || pnpm install
+
+
+qodana:
+  show-report: true        # produce an HTML report
+  fail-threshold: 0        # you can tighten this later
+
+# Optional: cache config to speed up runs in CI
+cache:
+  use-default: true
