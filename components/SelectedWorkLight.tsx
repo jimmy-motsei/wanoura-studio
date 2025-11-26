@@ -1,4 +1,6 @@
-// components/SelectedWorkLight.tsx
+"use client";
+
+import { FadeUpOnScroll } from "@/components/animation/FadeUpOnScroll";
 
 export default function SelectedWorkLight() {
     const items = [
@@ -29,23 +31,27 @@ export default function SelectedWorkLight() {
         <section className="bg-white py-20 md:py-24" id="selected-work">
             <div className="container mx-auto max-w-6xl">
                 {/* header */}
-                <p className="eyebrow text-slate-500">Selected work</p>
-                <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 max-w-3xl">
+                <FadeUpOnScroll as="p" className="eyebrow text-slate-500">
+                    Selected work
+                </FadeUpOnScroll>
+                <FadeUpOnScroll as="h2" className="text-3xl sm:text-4xl font-semibold text-slate-900 max-w-3xl" delay={0.05}>
                     From global campaigns to cultural moments, we design sound that moves
                     people — emotionally, physically, and culturally.
-                </h2>
-                <p className="mt-4 max-w-3xl text-slate-600">
+                </FadeUpOnScroll>
+                <FadeUpOnScroll as="p" className="mt-4 max-w-3xl text-slate-600" delay={0.1}>
                     This is a snapshot of recent work. Each project blends score, identity,
                     voice, mix, and delivery — built for speed, built for story, built for
                     roll-out.
-                </p>
+                </FadeUpOnScroll>
 
                 {/* cards */}
                 <div className="mt-10 grid gap-6 md:grid-cols-3">
-                    {items.map((item) => (
-                        <article
+                    {items.map((item, index) => (
+                        <FadeUpOnScroll
+                            as="article"
                             key={item.title}
                             className="rounded-2xl bg-[#121212] border border-white/5 shadow-[0_24px_60px_rgba(0,0,0,.15)] flex flex-col gap-4 p-6 md:p-7 min-h-[280px] text-white"
+                            delay={0.08 + index * 0.06}
                         >
                             {/* top meta */}
                             <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
@@ -66,7 +72,7 @@ export default function SelectedWorkLight() {
                             <p className="text-[11px] uppercase tracking-wide text-white/50 mt-auto">
                                 {item.extra}
                             </p>
-                        </article>
+                        </FadeUpOnScroll>
                     ))}
                 </div>
             </div>
