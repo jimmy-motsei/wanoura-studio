@@ -2,6 +2,7 @@
 "use client";
 
 import Hero from "@/components/work/HeroLight";
+import AboutUs from "@/Components/work/AboutUsLight"
 import SelectedWork from "@/components/work/SelectedWorkLight";
 import SpecialistServices from "@/components/work/SpecialistServicesLight";
 import Services from "@/components/work/ServicesLayoutLight";
@@ -17,6 +18,7 @@ export default function Page() {
             <WorksVimeoBinder containerId="moving-pictures" />
             <main className="min-h-screen">
                 <Hero />
+                <AboutUs />
                 <SelectedWork />
                 <SpecialistServices />
                 <Services />

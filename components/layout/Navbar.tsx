@@ -2,8 +2,10 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import SiteLogo from "@/components/SiteLogo";
 import { navLinks } from "@/lib/site-config";
+import { tapSpring } from "@/lib/motion";
 
 export default function Navbar() {
   return (
@@ -38,12 +40,13 @@ export default function Navbar() {
 
           {/* CTA */}
         <div className="hidden md:block">
-          <a
+          <motion.a
             href="#contact"
-            className="rounded-full bg-black px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-900"
+            className="btn-primary"
+            {...tapSpring}
           >
             Get in touch
-          </a>
+          </motion.a>
         </div>
 
         {/* Mobile placeholder (kept simple for now) */}

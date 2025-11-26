@@ -62,3 +62,8 @@ export const fadeUp = (delay = 0, y = 18) => {
 
 // Fade only (for use with scroll-based y transforms)
 export const fadeOnly = fade;
+
+// Tap interaction for buttons
+export const tapSpring = {
+    whileTap: { scale: 0.96 },
+};

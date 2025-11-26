@@ -190,3 +190,24 @@ img {
     color: #4a4a4a;
     max-width: 48rem;
 }
+
+/* =========================
+   Button utilities
+   ========================= */
+@layer components {
+    /* Primary button
+       - Default: black background, white text
+       - Hover/active: white background, black text, black border
+    */
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-all duration-200 bg-black text-white border border-black hover:bg-white hover:text-black hover:border-black;
+    }
+
+    /* Outline button
+       - Default: white background, black text, black border
+       - Hover: same geometry, keep white bg & black text (for now)
+    */
+    .btn-outline {
+        @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-all duration-200 bg-white text-black border border-black hover:bg-white hover:text-black hover:border-black;
+    }
+}

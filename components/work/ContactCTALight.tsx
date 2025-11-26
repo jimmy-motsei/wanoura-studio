@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { fadeUp } from "@/lib/motion";
+import { fadeUp, tapSpring } from "@/lib/motion";
 import { CONTACT_EMAIL } from "@/lib/contact";
 import { useFormStatus } from "@/lib/hooks/useFormStatus";
 
@@ -82,7 +82,7 @@ export default function ContactCTALight() {
         <section id="contact" className="bg-white py-20">
             <motion.div
                 {...fadeUp(0)}
-                className="mx-auto max-w-5xl rounded-[32px] border border-neutral-200 bg-white/70 p-10 lg:p-14 shadow-[0_24px_80px_rgba(15,23,42,0.06)]"
+                className="mx-auto max-w-5xl rounded-[32px] border border-neutral-200 bg-white/70 p-10 lg:p-14 shadow-[0_28px_70px_rgba(0,0,0,0.35)]"
             >
                 <motion.div className="max-w-2xl" {...fadeUp(0.05)}>
                     <p className="text-xs font-medium uppercase tracking-[0.4em] text-neutral-400">
@@ -187,13 +187,14 @@ export default function ContactCTALight() {
                     </div>
 
                     <div className="lg:col-span-2 flex flex-wrap items-center gap-4">
-                        <button
+                        <motion.button
                             type="submit"
                             disabled={status === "submitting"}
-                            className="inline-flex items-center justify-center rounded-full bg-neutral-900 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-700 disabled:bg-neutral-400"
+                            className="btn-primary disabled:bg-neutral-400"
+                            {...tapSpring}
                         >
                             {status === "submitting" ? "Sending..." : "Send request"}
-                        </button>
+                        </motion.button>
                         <p className="text-sm text-neutral-400">
                             Or email us directly at{" "}
                             <a
