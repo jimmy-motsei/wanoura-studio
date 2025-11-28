@@ -2,7 +2,7 @@
 "use client";
 
 import Hero from "@/components/work/HeroLight";
-import AboutUs from "@/Components/work/AboutUsLight"
+import AboutUs from "@/components/work/AboutUsLight"
 import SelectedWork from "@/components/work/SelectedWorkLight";
 import SpecialistServices from "@/components/work/SpecialistServicesLight";
 import Services from "@/components/work/ServicesLayoutLight";

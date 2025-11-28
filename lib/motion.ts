@@ -3,6 +3,9 @@
 
 export const easeOutCinematic = [0.25, 0.8, 0.3, 1] as const;
 
+export const easeOutExpo = (t: number): number =>
+  t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+
 const baseViewport = {
     once: true,
     amount: 0.2, // start animating fairly early in the viewport
