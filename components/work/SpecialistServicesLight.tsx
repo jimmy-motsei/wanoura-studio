@@ -3,13 +3,15 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { fadeUp } from "@/lib/motion";
 
 type Service = {
-    slug: "atmos-mixing" | "ai-studio-production";
+    slug: "atmos-mixing";
     title: string;
     summary: string;
     bullets: string[];
+    image: string;
 };
 
 const services: Service[] = [
@@ -23,17 +25,7 @@ const services: Service[] = [
             "Headphone-first monitoring with room-checked delivery",
             "ADM BWF / MP4 / binaural deliverables, QC and revisions",
         ],
-    },
-    {
-        slug: "ai-studio-production",
-        title: "AI Studio & Production",
-        summary:
-            "Tasteful AI for speed and exploration—finals crafted by ear, agency-ready polish. Clear approvals on what's AI-assisted vs hand-performed.",
-        bullets: [
-            "Music ideation, stem cleanup, noise & artifact removal",
-            "Voice direction, timing fixes, and sound-design sketching",
-            "Human-led decisions; transparent provenance in delivery",
-        ],
+        image: "/images/dolby-atmos-studio.png", // New generated image for Dolby Atmos
     },
 ];
 
@@ -45,7 +37,7 @@ export default function SpecialistServicesLight() {
             className="px-6 py-16"
         >
 
-        <div className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-6xl">
                 {/* Motion-enhanced heading */}
                 <motion.h2
                     id="specialist-heading"
@@ -64,25 +56,71 @@ export default function SpecialistServicesLight() {
                     and ambitious artists.
                 </motion.p>
 
-                <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div className="mt-10">
                     {services.map((s, i) => (
                         <motion.article
                             key={s.slug}
-                            {...fadeUp(0.08 + i * 0.04)}
-                            className="group relative rounded-2xl border border-neutral-200/70 bg-white p-6 shadow-sm transition hover:shadow-md focus-within:shadow-md"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
+                            variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                visible: {
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 0.6,
+                                        ease: [0.25, 0.8, 0.3, 1],
+                                        staggerChildren: 0.1,
+                                    },
+                                },
+                            }}
+                            className="group relative overflow-hidden rounded-2xl border border-neutral-200/70 bg-white shadow-sm transition hover:shadow-md focus-within:shadow-md flex flex-col md:flex-row p-3"
                         >
-                            <h3 className="text-lg font-semibold text-neutral-900">{s.title}</h3>
+                            <motion.div
+                                className="relative h-64 md:h-auto md:w-5/12 shrink-0 rounded-xl overflow-hidden"
+                                variants={{
+                                    hidden: { opacity: 0, scale: 0.98 },
+                                    visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
+                                }}
+                            >
+                                <Image
+                                    src={s.image}
+                                    alt={s.title}
+                                    fill
+                                    className="object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:bg-gradient-to-r md:from-transparent md:to-transparent" />
+                            </motion.div>
 
-                            <p className="mt-3 text-sm leading-relaxed text-neutral-700">{s.summary}</p>
+                            <div className="p-8 md:p-10 flex flex-col justify-center">
+                                <motion.h3
+                                    className="text-2xl font-semibold text-neutral-900"
+                                    variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}
+                                >
+                                    {s.title}
+                                </motion.h3>
 
-                            <ul className="mt-4 space-y-1.5 text-sm text-neutral-700/90">
-                                {s.bullets.map((b) => (
-                                    <li key={b} className="flex gap-2">
-                                        <span className="mt-[0.4rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-300" />
-                                        <span>{b}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                                <motion.p
+                                    className="mt-4 text-base leading-relaxed text-neutral-700"
+                                    variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}
+                                >
+                                    {s.summary}
+                                </motion.p>
+
+                                <ul className="mt-6 space-y-2 text-sm text-neutral-700/90">
+                                    {s.bullets.map((b) => (
+                                        <motion.li
+                                            key={b}
+                                            className="flex gap-3 items-start"
+                                            variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}
+                                        >
+                                            <span className="mt-[0.4rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400" />
+                                            <span>{b}</span>
+                                        </motion.li>
+                                    ))}
+                                </ul>
+                            </div>
 
                             {/* keyboard-focus ring aid */}
                             <span className="pointer-events-none absolute inset-0 rounded-2xl ring-0 focus-within:ring-2 focus-within:ring-neutral-300" />

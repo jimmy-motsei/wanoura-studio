@@ -7,8 +7,16 @@ export default function HeroLight() {
     return (
         <section
             id="hero"
-            className="relative bg-white hero min-h-screen flex items-center"
+            className="relative bg-white hero min-h-screen flex items-center overflow-hidden"
         >
+            {/* Background Design Element */}
+            <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 translate-x-[30%] opacity-[0.05] w-[80vh] h-[80vh] md:w-[100vh] md:h-[100vh] select-none">
+                <img
+                    src="/img/wanoura/hero-bg-icon.png"
+                    alt=""
+                    className="w-full h-full object-contain"
+                />
+            </div>
             <div className="mx-auto w-full max-w-5xl px-6 py-20 md:py-0">
                 <motion.div
                     className="max-w-2xl"

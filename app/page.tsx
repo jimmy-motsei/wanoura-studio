@@ -5,6 +5,7 @@ import Hero from "@/components/work/HeroLight";
 import AboutUs from "@/components/work/AboutUsLight"
 import SelectedWork from "@/components/work/SelectedWorkLight";
 import SpecialistServices from "@/components/work/SpecialistServicesLight";
+import Capabilities from "@/components/work/CapabilitiesLight";
 import Services from "@/components/work/ServicesLayoutLight";
 import Clients from "@/components/work/ClientsStripLight";
 import MovingPictures from "@/components/work/OriginalCompositionsLight";
@@ -21,9 +22,9 @@ export default function Page() {
                 <AboutUs />
                 <SelectedWork />
                 <SpecialistServices />
-                <Services />
-                <Clients />
+                <Capabilities />
                 <MovingPictures />
+                <Clients />
                 <Contact />
                 <FooterLight />
             </main>

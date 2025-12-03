@@ -1,6 +1,7 @@
 // components/SelectedWorkLight.tsx
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
 
@@ -12,13 +13,8 @@ export default function SelectedWorkLight() {
             title: "“Make them feel it in 3 seconds.”",
             text: `We built an aggressive, high-memory hook for Jägermeister that had to hit fast on social. No warm-up. The brief: sound that tastes like fire, but still clears legal.`,
             extra: "Deliverables: hero sting, cutdowns, edit-safe alts, paid + organic versions.",
-        },
-        {
-            year: "2024",
-            category: "Brand world / Voice & identity",
-            title: "A voice that sounds like the future — not a script.",
-            text: `For Nike, we built a vocal identity that feels human, urgent, and undeniable — not announcer-y. Casting, direction, timing, breathing, pace.`,
-            extra: "Deliverables: campaign VO system, multilingual reads, creator handoff kit.",
+            icon: "/client-logos/jagermeister.png",
+            iconClass: "h-12 w-12",
         },
         {
             year: "2023",
@@ -26,6 +22,8 @@ export default function SelectedWorkLight() {
             title: "Turning a live set into a brand.",
             text: `With Uncle Waffles, we shaped the full audio experience — transitions, drops, crowd texture, on-stage identity.`,
             extra: "Deliverables: live show stems, streaming masters, teaser audio for socials.",
+            icon: "/client-logos/studio-banana.png",
+            iconClass: "h-12 w-12", // Fixed width to prevent container collapse with fill
         },
     ];
 
@@ -37,7 +35,7 @@ export default function SelectedWorkLight() {
                     Selected work
                 </motion.p>
 
-                <motion.div {...fadeUp(0)}>
+                <motion.div {...fadeUp(0.05)}>
                     <h2 className="text-[2rem] sm:text-[2.65rem] leading-tight tracking-[-0.02em] text-slate-900 max-w-4xl">
                         From global campaigns to cultural moments.
                     </h2>
@@ -56,30 +54,42 @@ export default function SelectedWorkLight() {
                 </motion.p>
 
                 {/* cards */}
-                <div className="mt-10 grid gap-6 md:grid-cols-3">
+                <div className="mt-10 grid gap-6 md:grid-cols-2">
                     {items.map((item, i) => (
                         <motion.article
                             key={item.title}
                             {...fadeUp(0.15 + i * 0.05, 40)}
-                            className="rounded-2xl bg-[#121212] border border-white/5 shadow-[0_24px_60px_rgba(0,0,0,.15)] flex flex-col gap-4 p-6 md:p-7 min-h-[280px] text-white"
+                            className="relative flex min-h-[340px] flex-col gap-6 overflow-hidden rounded-2xl bg-[#121212] border border-white/5 p-8 shadow-[0_24px_60px_rgba(0,0,0,.15)] md:p-10 text-white"
                         >
+                            {/* Icon (if present) */}
+                            {item.icon && (
+                                <div className={`absolute right-8 top-8 opacity-60 grayscale transition-all hover:grayscale-0 ${item.iconClass || "h-12 w-12"}`}>
+                                    <Image
+                                        src={item.icon}
+                                        alt="Client Icon"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                            )}
+
                             {/* top meta */}
-                            <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                            <p className="text-xs uppercase tracking-[0.28em] text-white/45">
                                 {item.year} • {item.category}
                             </p>
 
                             {/* title */}
-                            <h3 className="text-lg font-semibold leading-snug text-white">
+                            <h3 className="max-w-[90%] text-2xl font-semibold leading-tight text-white md:text-3xl">
                                 {item.title}
                             </h3>
 
                             {/* main copy */}
-                            <p className="text-sm leading-relaxed text-white/80">
+                            <p className="max-w-[90%] text-base leading-relaxed text-white/80">
                                 {item.text}
                             </p>
 
                             {/* footer/meta */}
-                            <p className="text-[11px] uppercase tracking-wide text-white/50 mt-auto">
+                            <p className="mt-auto pt-4 text-xs uppercase tracking-wide text-white/50">
                                 {item.extra}
                             </p>
                         </motion.article>
