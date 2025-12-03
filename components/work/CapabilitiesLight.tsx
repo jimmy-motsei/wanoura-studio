@@ -6,36 +6,49 @@ import { fadeUp } from "@/lib/motion";
 import { Mic2, Music, Radio, Volume2, Box } from "lucide-react";
 
 export default function CapabilitiesLight() {
-    const capabilities = [
+    // Cast icons to any to resolve React version mismatch issues
+    const RadioIcon = Radio as any;
+    const MusicIcon = Music as any;
+    const Mic2Icon = Mic2 as any;
+    const Volume2Icon = Volume2 as any;
+    const BoxIcon = Box as any;
+
+    type Capability = {
+        title: string;
+        body: string;
+        icon: React.ReactNode;
+    };
+
+    const capabilities: Capability[] = [
         {
             title: "Sonic Identity & Branding",
             body:
                 "We define the voice of your brand in sound — mnemonic signatures, tonal palettes, UI sound libraries, and branded audio systems built for campaigns, products, and platforms.",
-            icon: <Radio className="w-6 h-6 text-neutral-900" />,
+            icon: <RadioIcon className="w-6 h-6 text-neutral-900" />,
         },
         {
             title: "Sound Design & Original Composition",
             body:
                 "Themes, cues, Foley, atmospheres. We build emotional architecture for film, trailers, activations, and interactive work. Dialogue is cleaned, dynamics balanced, and deliverables are spec-ready.",
-            icon: <Music className="w-6 h-6 text-neutral-900" />,
+            icon: <MusicIcon className="w-6 h-6 text-neutral-900" />,
         },
         {
             title: "Voice Direction & Vocal Strategy",
             body:
                 "We direct voice talent and shape delivery so narration feels lived-in, not read. Tone, pacing, breath, and presence are treated as instruments.",
-            icon: <Mic2 className="w-6 h-6 text-neutral-900" />,
+            icon: <Mic2Icon className="w-6 h-6 text-neutral-900" />,
         },
         {
             title: "Mixing, Mastering & Delivery",
             body:
                 "Final masters for clarity, loudness, mono compatibility, and platform translation — cinema, broadcast, streaming, radio, and social. Nothing leaves without QC.",
-            icon: <Volume2 className="w-6 h-6 text-neutral-900" />,
+            icon: <Volume2Icon className="w-6 h-6 text-neutral-900" />,
         },
         {
             title: "Experiential & Spatial Audio",
             body:
                 "Immersive, multi-channel, site-specific sound for events, installations, and branded experiences. We build presence, tension, memory.",
-            icon: <Box className="w-6 h-6 text-neutral-900" />,
+            icon: <BoxIcon className="w-6 h-6 text-neutral-900" />,
         },
     ];
 
