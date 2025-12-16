@@ -2,7 +2,7 @@ export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="w-full bg-neutral-950 border-t border-neutral-900/50 px-6 md:px-12 lg:px-24 py-16 text-neutral-400 text-sm">
+        <footer className="w-full bg-neutral-950 border-t border-neutral-900/50 px-4 sm:px-6 lg:px-8 py-16 text-neutral-400 text-sm">
             <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-4">
                 <div>
                     <h4 className="text-neutral-200 text-xs uppercase tracking-wide mb-4">

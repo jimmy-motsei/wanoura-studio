@@ -34,7 +34,7 @@ export default function SpecialistServicesLight() {
         <section
             id="specialist-services"
             aria-labelledby="specialist-heading"
-            className="px-6 py-16"
+            className="px-4 sm:px-6 lg:px-8 py-16"
         >
 
             <div className="mx-auto max-w-6xl">

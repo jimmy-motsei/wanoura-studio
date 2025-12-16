@@ -79,7 +79,7 @@ export default function ContactCTALight() {
     };
 
     return (
-        <section id="contact" className="bg-white py-20">
+        <section id="contact" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
             <motion.div
                 {...fadeUp(0)}
                 className="mx-auto max-w-5xl rounded-[32px] border border-neutral-200 bg-white/70 p-10 lg:p-14 shadow-[0_28px_70px_rgba(0,0,0,0.35)]"

@@ -7,7 +7,7 @@ import { CONTACT_EMAIL } from "@/lib/contact";
 
 export default function FooterLight() {
     return (
-        <footer className="bg-neutral-900 text-white px-4 py-20 sm:py-24 rounded-3xl">
+        <footer className="bg-neutral-900 text-white px-4 sm:px-6 lg:px-8 py-20 sm:py-24 rounded-3xl">
             <div className="mx-auto max-w-5xl">
                 <motion.div
                     {...fadeUp(0.18, 10)}  // slightly delayed, tiny vertical lift

@@ -29,7 +29,7 @@ export default function SelectedWorkLight() {
 
     return (
         <section className="bg-white py-20 md:py-24" id="selected-work">
-            <div className="container mx-auto max-w-6xl">
+            <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                 {/* header */}
                 <motion.p className="eyebrow text-slate-500" {...fadeUp(0)}>
                     Selected work
