@@ -47,7 +47,7 @@ export default function CapabilitiesLight() {
     ];
 
     return (
-        <section className="w-full bg-white px-6 md:px-12 lg:px-24 py-20 md:py-28 flex justify-center border-t border-neutral-200">
+        <section id="services" className="w-full bg-white px-6 md:px-12 lg:px-24 py-20 md:py-28 flex justify-center border-t border-neutral-200">
             <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                 {/* LEFT COLUMN */}
                 <div className="flex flex-col">

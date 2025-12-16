@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeUp, tapSpring } from "@/lib/motion";
+import CookieBanner from "@/components/CookieBanner";
 
 export default function HeroLight() {
     return (
@@ -56,6 +57,9 @@ export default function HeroLight() {
                     </div>
                 </motion.div>
             </div>
+
+            {/* Cookie Banner */}
+            <CookieBanner />
         </section>
     );
 }

@@ -10,7 +10,7 @@ export default function ClientsStripLight() {
     // clients data moved to lib/site-config.ts
 
     return (
-        <section className="relative py-6 md:py-8">
+        <section id="client-logos" className="relative py-6 md:py-8">
             <motion.p
                 className="text-center text-xs tracking-[0.32em] uppercase text-slate-900/70 mb-4"
                 {...fadeUp(0)}
