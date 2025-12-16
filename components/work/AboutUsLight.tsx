@@ -63,7 +63,7 @@ export default function AboutUsLight() {
                         {...fadeUp(0.1)}
                     >
                         <Image
-                            src="/img/founder.png"
+                            src="/images/classic-speaker.webp"
                             alt="Abstract resonance waves"
                             fill
                             className="object-cover rounded-2xl"

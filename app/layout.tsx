@@ -15,7 +15,7 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
-    title: "Wanoura — The Legacy of Sound",
+    title: "Wanoura — Sound, Highly Envisioned.",
     description: "Sonic identity, design, direction & delivery.",
 };
 

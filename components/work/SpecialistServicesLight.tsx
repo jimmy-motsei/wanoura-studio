@@ -25,7 +25,7 @@ const services: Service[] = [
             "Headphone-first monitoring with room-checked delivery",
             "ADM BWF / MP4 / binaural deliverables, QC and revisions",
         ],
-        image: "/images/dolby-atmos-studio.png", // New generated image for Dolby Atmos
+        image: "/images/studio-mic.jpg",
     },
 ];
 

@@ -9,21 +9,21 @@ export default function SelectedWorkLight() {
     const items = [
         {
             year: "2024",
-            category: "Launch film / Sonic identity",
-            title: "“Make them feel it in 3 seconds.”",
-            text: `We built an aggressive, high-memory hook for Jägermeister that had to hit fast on social. No warm-up. The brief: sound that tastes like fire, but still clears legal.`,
-            extra: "Deliverables: hero sting, cutdowns, edit-safe alts, paid + organic versions.",
+            category: "Launch Film / Custom Music Score",
+            title: "Reimagine a Smash hit",
+            text: `Created the soundtrack for a rollout campaign to promote an upcoming Uncle Waffles at the Brooklyn Mirage which is traditionally a Jazz venue. We reinterpreted her hit song Wadibusa into a beautiful Jazz rendition.`,
+            extra: "Deliverables: custom music score, launch film soundtrack, Jazz arrangement.",
             icon: "/client-logos/jagermeister.png",
             iconClass: "h-12 w-12",
         },
         {
             year: "2023",
-            category: "TV / show / Cultural moment / Mix & delivery",
-            title: "Turning a live set into a brand.",
-            text: `With Uncle Waffles, we shaped the full audio experience — transitions, drops, crowd texture, on-stage identity.`,
-            extra: "Deliverables: live show stems, streaming masters, teaser audio for socials.",
+            category: "Film / Custom Music Score",
+            title: "Setting a cultural scene.",
+            text: `Scoring what huge cultural impact sounds like. Done on multiple instances to create waves that resonate as deeply as the message behind the client's flagship product.`,
+            extra: "Deliverables: custom film score, cultural soundscapes, brand sonic identity.",
             icon: "/client-logos/studio-banana.png",
-            iconClass: "h-12 w-12", // Fixed width to prevent container collapse with fill
+            iconClass: "h-12 w-12",
         },
     ];
 

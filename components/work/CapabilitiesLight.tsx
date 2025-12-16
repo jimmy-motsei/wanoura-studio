@@ -3,13 +3,13 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { fadeUp } from "@/lib/motion";
-import { Mic2, Music, Radio, Volume2, Box } from "lucide-react";
+import { Music, Radio, Volume2, Box } from "lucide-react";
 
 export default function CapabilitiesLight() {
     // Cast icons to any to resolve React version mismatch issues
     const RadioIcon = Radio as any;
     const MusicIcon = Music as any;
-    const Mic2Icon = Mic2 as any;
+
     const Volume2Icon = Volume2 as any;
     const BoxIcon = Box as any;
 
@@ -33,13 +33,7 @@ export default function CapabilitiesLight() {
             icon: <MusicIcon className="w-6 h-6 text-neutral-900" />,
         },
         {
-            title: "Voice Direction & Vocal Strategy",
-            body:
-                "We direct voice talent and shape delivery so narration feels lived-in, not read. Tone, pacing, breath, and presence are treated as instruments.",
-            icon: <Mic2Icon className="w-6 h-6 text-neutral-900" />,
-        },
-        {
-            title: "Mixing, Mastering & Delivery",
+            title: "Final Mix",
             body:
                 "Final masters for clarity, loudness, mono compatibility, and platform translation — cinema, broadcast, streaming, radio, and social. Nothing leaves without QC.",
             icon: <Volume2Icon className="w-6 h-6 text-neutral-900" />,
@@ -54,12 +48,12 @@ export default function CapabilitiesLight() {
 
     return (
         <section className="w-full bg-white px-6 md:px-12 lg:px-24 py-20 md:py-28 flex justify-center border-t border-neutral-200">
-            <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-16">
+            <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                 {/* LEFT COLUMN */}
                 <div className="flex flex-col">
                     <motion.div
                         {...fadeUp(0)}
-                        className="mb-10"
+                        className="mb-8"
                     >
                         <p className="text-[11px] uppercase tracking-wide text-neutral-500 font-medium mb-4">
                             Services
@@ -71,7 +65,7 @@ export default function CapabilitiesLight() {
                         </h2>
 
                         <p className="text-neutral-600 leading-relaxed text-base md:text-lg max-w-xl">
-                            When sound is intentional, it doesn’t just support the story —
+                            When sound is intentional, it doesn't just support the story —
                             it becomes the story. Our role is to translate feeling into sonic
                             language that people remember.
                         </p>
@@ -83,11 +77,11 @@ export default function CapabilitiesLight() {
                         className="relative max-w-md rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-50 shadow-[0_30px_60px_rgba(0,0,0,0.12)]"
                     >
                         <Image
-                            src="/images/sound-studio-portrait.jpg"
+                            src="/images/sound-equipment.jpg"
                             alt="Studio microphone and workstation"
                             width={800}
                             height={1200}
-                            className="object-cover w-full h-auto max-h-72"
+                            className="object-cover w-full h-auto max-h-80"
                         />
                     </motion.div>
                 </div>
@@ -98,18 +92,18 @@ export default function CapabilitiesLight() {
                         <motion.div
                             key={i}
                             {...fadeUp(0.1 * i)}
-                            className={`pb-8 ${i !== capabilities.length - 1
-                                ? "mb-8 border-b border-neutral-200"
+                            className={`pb-5 ${i !== capabilities.length - 1
+                                ? "mb-5 border-b border-neutral-200"
                                 : ""
                                 }`}
                         >
-                            <div className="flex items-center gap-3 mb-3">
+                            <div className="flex items-center gap-3 mb-2">
                                 {cap.icon}
-                                <h3 className="font-semibold text-neutral-900 text-lg">
+                                <h3 className="font-semibold text-neutral-900 text-base">
                                     {cap.title}
                                 </h3>
                             </div>
-                            <p className="text-neutral-600 text-[0.95rem] leading-relaxed pl-9">
+                            <p className="text-neutral-600 text-sm leading-relaxed pl-9">
                                 {cap.body}
                             </p>
                         </motion.div>

@@ -27,7 +27,7 @@ export default function HeroLight() {
                     </h1>
 
                     <h2 className="text-xl md:text-2xl font-medium text-neutral-700 mt-2">
-                        The Legacy of Sound.
+                        Sound, Highly Envisioned.
                     </h2>
 
                     <p className="lead mt-6 max-w-prose text-sm leading-relaxed text-neutral-600">
