@@ -27,15 +27,15 @@ export default function CapabilitiesLight() {
             icon: <RadioIcon className="w-6 h-6 text-neutral-900" />,
         },
         {
-            title: "Sound Design & Original Composition",
+            title: "Bespoke Music Composition & Sound Design",
             body:
-                "Themes, cues, Foley, atmospheres. We build emotional architecture for film, trailers, activations, and interactive work. Dialogue is cleaned, dynamics balanced, and deliverables are spec-ready.",
+                "We create custom music and sound worlds built around story, rhythm, and emotion. Themes, cues, and sonic detail are crafted to feel intentional and lasting, not interchangeable. Dialogue is polished, dynamics are balanced, and delivery is handled cleanly to spec.",
             icon: <MusicIcon className="w-6 h-6 text-neutral-900" />,
         },
         {
             title: "Final Mix",
             body:
-                "Final masters for clarity, loudness, mono compatibility, and platform translation — cinema, broadcast, streaming, radio, and social. Nothing leaves without QC.",
+                "Final masters for clarity, loudness, and platform translation — cinema, broadcast, streaming, radio, and social. Nothing leaves without QC.",
             icon: <Volume2Icon className="w-6 h-6 text-neutral-900" />,
         },
         {

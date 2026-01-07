@@ -8,12 +8,12 @@ export default function Capabilities() {
         {
             title: "Sonic Identity & Branding",
             body:
-                "We define the voice of your brand in sound — mnemonic signatures, tonal palettes, UI sound libraries, and branded audio systems built for campaigns, products, and platforms.",
+                "We define the voice of your brand in sound — mnemonic signatures, tonal palettes, UI sound libraries, and branded audio systems built for campaigns, products, and platforms.", 
         },
         {
             title: "Sound Design & Original Composition",
             body:
-                "Themes, cues, Foley, atmospheres. We build emotional architecture for film, trailers, activations, and interactive work. Dialogue is cleaned, dynamics balanced, and deliverables are spec-ready.",
+                "We create custom music and sound worlds built around story, rhythm, and emotion. Themes, cues, and sonic detail are crafted to feel intentional and lasting, not interchangeable. Dialogue is polished, dynamics are balanced, and delivery is handled cleanly to spec.",
         },
         {
             title: "Voice Direction & Vocal Strategy",
@@ -23,7 +23,7 @@ export default function Capabilities() {
         {
             title: "Mixing, Mastering & Delivery",
             body:
-                "Final masters for clarity, loudness, mono compatibility, and platform translation — cinema, broadcast, streaming, radio, and social. Nothing leaves without QC.",
+                "Final masters for clarity, loudness, and platform translation — cinema, broadcast, streaming, radio, and social. Nothing leaves without QC.",
         },
         {
             title: "Experiential & Spatial Audio",

@@ -19,12 +19,13 @@ const services: Service[] = [
         slug: "atmos-mixing",
         title: "Dolby Atmos Mixing",
         summary:
-            "Musical-first spatial mixes that translate—headphones, club, or certified rooms. Depth, direction, and space serving the story, never a gimmick.",
+            "Audio spatial mixes designed to translate across headphones and professional playback environments. Depth, direction, and space serving the story, never a gimmick.",
         bullets: [
-            "Music, trailers, brand films, and spatial sound design",
-            "Headphone-first monitoring with room-checked delivery",
-            "ADM BWF / MP4 / binaural deliverables, QC and revisions",
+            "Dolby Atmos mixing for trailers, brand films, and spatial sound design",
+            "Spatial mixes that scale from intimate headphone listening to cinematic playback",
+            "ADM BWF masters, Atmos binaural deliverables, QC-compliant delivery and revisions",
         ],
+        
         image: "/images/studio-mic.jpg",
     },
 ];
