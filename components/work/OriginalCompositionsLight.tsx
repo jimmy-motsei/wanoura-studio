@@ -16,13 +16,13 @@ const works = [
         image: "/client-logos/jagermeister.png",
     },
     {
-        slug: "love-letters-to-my-mom",
-        client: "STUDIO BANANAAA",
-        title: "Love Letters to my Mom",
+        slug: "velo-pr-stunt-jhb",
+        client: "VELO",
+        title: "Velo PR Stunt (Johannesburg)",
         role: "Original Score",
-        duration: "01:13",
+        duration: "00:16",
         year: "2024",
-        image: "/client-logos/studio-banana.png",
+        image: "/client-logos/velo.svg",
     },
     {
         slug: "mamas-boy",
@@ -34,13 +34,13 @@ const works = [
         image: "/client-logos/studio-banana.png",
     },
     {
-        slug: "umfana-ka-ma",
-        client: "STUDIO BANANAAA",
-        title: "Umfana ka Ma",
+        slug: "velo-pr-stunt-cpt",
+        client: "VELO",
+        title: "Velo PR Stunt (Cape Town)",
         role: "Original Score",
-        duration: "01:04",
+        duration: "00:18",
         year: "2024",
-        image: "/client-logos/studio-banana.png",
+        image: "/client-logos/velo.svg",
     },
 ] as const;
 
