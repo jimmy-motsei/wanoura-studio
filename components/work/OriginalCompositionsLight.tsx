@@ -25,13 +25,13 @@ const works = [
         image: "/client-logos/velo.svg",
     },
     {
-        slug: "mamas-boy",
-        client: "STUDIO BANANAAA",
-        title: "Mama's Boy",
-        role: "Original Score, Sound Design",
-        duration: "00:58",
-        year: "2024",
-        image: "/client-logos/studio-banana.png",
+        slug: "mukuru",
+        client: "MUKURU",
+        title: "Mukuru",
+        role: "Sound Design",
+        duration: "01:00",
+        year: "2026",
+        image: null,
     },
     {
         slug: "velo-pr-stunt-cpt",
@@ -86,14 +86,16 @@ export default function OriginalCompositionsLight() {
                             <div className="relative z-10">
                                 <div className="flex items-start justify-between">
                                     <div className="flex gap-4">
-                                        <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md bg-neutral-100 border border-neutral-200">
-                                            <Image
-                                                src={work.image}
-                                                alt={work.title}
-                                                fill
-                                                className="object-contain p-[5px]"
-                                            />
-                                        </div>
+                                        {work.image && (
+                                            <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-md bg-neutral-100 border border-neutral-200">
+                                                <Image
+                                                    src={work.image}
+                                                    alt={work.title}
+                                                    fill
+                                                    className="object-contain p-[5px]"
+                                                />
+                                            </div>
+                                        )}
                                         <div>
                                             <p className="text-[10px] font-medium tracking-[0.2em] text-white/80">{work.client}</p>
                                             <p className="mt-1 text-lg font-semibold text-white">{work.title}</p>

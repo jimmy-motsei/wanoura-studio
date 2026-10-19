@@ -5,12 +5,12 @@ import dynamic from "next/dynamic";
 
 const VideoLightbox = dynamic(() => import("@/components/work/VideoLightbox"), { ssr: false });
 
-const ORDERED = ["my-waffles-tease", "velo-pr-stunt-jhb", "mamas-boy", "velo-pr-stunt-cpt"] as const;
+const ORDERED = ["my-waffles-tease", "velo-pr-stunt-jhb", "mukuru", "velo-pr-stunt-cpt"] as const;
 
 const WORKS_BY_SLUG: Record<string, { title: string; vimeoId: string }> = {
   "my-waffles-tease": { title: "My Waffles (Tease)", vimeoId: "1132870462" },
   "velo-pr-stunt-jhb": { title: "Velo PR Stunt (Johannesburg)", vimeoId: "1171044153" },
-  "mamas-boy": { title: "Mama's Boy", vimeoId: "1132870415" },
+  "mukuru": { title: "Mukuru", vimeoId: "1224968379" },
   "velo-pr-stunt-cpt": { title: "Velo PR Stunt (Cape Town)", vimeoId: "1171044061" },
 };
 
