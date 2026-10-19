@@ -31,7 +31,7 @@ const works = [
         role: "Sound Design",
         duration: "01:00",
         year: "2026",
-        image: null,
+        image: "/client-logos/mukuru.png",
     },
     {
         slug: "velo-pr-stunt-cpt",
