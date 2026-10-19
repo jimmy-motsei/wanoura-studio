@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     title: "Wanoura — Sound, Highly Envisioned.",
     description: "Sonic identity, design, direction & delivery.",
     alternates: { canonical: "/" },
+    verification: { google: "zitlTdr2yP3qgT6PULfeJlBJuCAnjUeIzUBvSQu0fu4" },
 };
 
 export default function RootLayout({
