@@ -15,8 +15,10 @@ const interTight = Inter_Tight({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://dreamwanoura.com"),
     title: "Wanoura — Sound, Highly Envisioned.",
     description: "Sonic identity, design, direction & delivery.",
+    alternates: { canonical: "/" },
 };
 
 export default function RootLayout({
