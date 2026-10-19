@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Inter, Inter_Tight } from "next/font/google";
 
 const inter = Inter({
@@ -34,6 +35,7 @@ export default function RootLayout({
         <body className="min-h-screen bg-white antialiased">
         <Navbar />
         {children}
+        <GoogleAnalytics />
         </body>
         </html>
     );

@@ -3,13 +3,19 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { tapSpring } from "@/lib/motion";
+import { CONSENT_EVENT, CONSENT_STORAGE_KEY } from "@/components/GoogleAnalytics";
 
 export default function CookieBanner() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         // Check if user has already accepted cookies
-        const consent = localStorage.getItem("wanoura-cookie-consent");
+        let consent: string | null = null;
+        try {
+            consent = localStorage.getItem(CONSENT_STORAGE_KEY);
+        } catch {
+            consent = null;
+        }
         if (!consent) {
             // Small delay for better UX
             const timer = setTimeout(() => setIsVisible(true), 1000);
@@ -17,15 +23,18 @@ export default function CookieBanner() {
         }
     }, []);
 
-    const handleAccept = () => {
-        localStorage.setItem("wanoura-cookie-consent", "accepted");
+    const saveChoice = (choice: "accepted" | "declined") => {
+        try {
+            localStorage.setItem(CONSENT_STORAGE_KEY, choice);
+        } catch {
+            // storage unavailable (private mode): choice applies to this visit only
+        }
+        window.dispatchEvent(new Event(CONSENT_EVENT));
         setIsVisible(false);
     };
 
-    const handleDecline = () => {
-        localStorage.setItem("wanoura-cookie-consent", "declined");
-        setIsVisible(false);
-    };
+    const handleAccept = () => saveChoice("accepted");
+    const handleDecline = () => saveChoice("declined");
 
     return (
         <AnimatePresence>
@@ -67,7 +76,7 @@ export default function CookieBanner() {
                                 We use cookies
                             </h3>
                             <p className="mt-1 text-[11px] leading-relaxed text-neutral-600 sm:mt-1.5 sm:text-xs">
-                                We use cookies to enhance your experience. By continuing, you agree to our use.
+                                We use analytics cookies to understand how visitors use our site. They only load if you accept.
                             </p>
                         </div>
                     </div>

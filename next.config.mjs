@@ -14,10 +14,10 @@ const nextConfig = {
                         value: [
                             "default-src 'self'",
                             "frame-src https://player.vimeo.com",
-                            "img-src 'self' data: https://i.vimeocdn.com",
-                            "script-src 'self' 'unsafe-inline'",
+                            "img-src 'self' data: https://i.vimeocdn.com https://*.google-analytics.com https://*.googletagmanager.com",
+                            "script-src 'self' 'unsafe-inline' https://*.googletagmanager.com",
                             "style-src 'self' 'unsafe-inline'",
-                            "connect-src 'self' https://player.vimeo.com",
+                            "connect-src 'self' https://player.vimeo.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
                             "media-src 'self' blob: data:",
                             "object-src 'none'",
                         ].join("; "),
